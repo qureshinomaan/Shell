@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
 #include<string.h>
@@ -15,6 +16,7 @@ char home[100],pwd[100],dir[100],user[256],host[256];
 int id;
 
 void ls();
+void pinfo2();
 void hme();
 void pd();
 void cd();

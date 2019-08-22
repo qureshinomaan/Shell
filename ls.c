@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
 #include<string.h>
@@ -20,6 +21,7 @@ void cd();
 void username();
 void vi();
 void hostname();
+void pinfo2();
 void echo();
 void showpwd();
 void printEveryTime();

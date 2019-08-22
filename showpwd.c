@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
 #include<string.h>
@@ -24,6 +25,7 @@ void hostname();
 void echo();
 void printEveryTime();
 void pinfo();
+void pinfo2();
 
 extern void showpwd()
 {

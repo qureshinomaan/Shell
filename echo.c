@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
 #include<string.h>
@@ -16,6 +17,7 @@ int id;
 
 void ls();
 void hme();
+void pinfo2();
 void pd();
 void cd();
 void username();

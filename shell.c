@@ -1,6 +1,7 @@
 #include<dirent.h>
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 #include<sys/wait.h>
 #include<sys/stat.h>
 #include<fcntl.h>
@@ -22,6 +23,7 @@ long long int len(char string[])
 	return i;
 }
 
+void pinfo2(char *pid);
 void ls();
 void hme();
 void pd();
@@ -46,13 +48,11 @@ int main(void)
 		printEveryTime();
 		fgets(semicolon,100,stdin);
 		char *everysemi = semicolon;
-		printf("%s\n",semicolon);
 		while((command = strtok_r(everysemi, ";",&everysemi)))
 		{
 			//============================================================//
 			// Getting the command and splitting it. 
 			//============================================================//
-			printf("command = %s\n",command);
 			if(command[strlen(command)-1] == '\n')
 				command[strlen(command)-1]='\0';
 			if(strlen(command)!=0)
@@ -85,8 +85,18 @@ int main(void)
 							cd();
 						}
 						else
-						{	if(strlen(actual_cmd[1])!=0)
+						{	
+							if(strlen(actual_cmd[1])!=0 && actual_cmd[1][0]!='~')
 								strcpy(dir,actual_cmd[1]);
+							else if(actual_cmd[1][0]=='~'&&strlen(actual_cmd[1])!=1)
+							{
+								char newcommand[100];
+								newcommand[0] = '/';
+								for(int i=1;i<strlen(actual_cmd[1]);i++)
+									newcommand[i] = actual_cmd[1][i];
+								strcpy(dir, home);
+								strcat(dir, newcommand);
+							}
 							else 
 								strcpy(dir,home);
 							cd();
@@ -102,12 +112,17 @@ int main(void)
 						ls();
 					else if(strcmp(actual_cmd[0],"pinfo") == 0)
 					{
-						pinfo();
+						if(strlen(actual_cmd[1])==0)
+							pinfo();
+						else
+							pinfo2(actual_cmd[1]);
+
 					}
 					else
 					{
 						vi(actual_cmd);
-					}	}
+					}	
+				}
 		}
 	}
 

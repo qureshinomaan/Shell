@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
 #include<string.h>
@@ -18,6 +19,7 @@ void ls();
 void hme();
 void pd();
 void username();
+void pinfo2();
 void vi();
 void hostname();
 void echo();
