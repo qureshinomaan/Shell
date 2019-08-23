@@ -7,6 +7,7 @@
 #include<fcntl.h>
 #include<unistd.h>
 #include<time.h>
+#include<sys/resource.h>
 #include<sys/types.h>
 
 struct stat statRes;

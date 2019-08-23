@@ -8,6 +8,8 @@
 #include<unistd.h>
 #include<time.h>
 #include<sys/types.h>
+#include<sys/resource.h>
+
 
 struct stat statRes;
 struct rusage usage;
