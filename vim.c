@@ -41,20 +41,18 @@ extern void vim(char *argv[], int len)
     pid_t cid = fork();
     if(cid==0)
         {  
-          printf("yahin honn main\n");
-          kill(getpid(),SIGKILL);
+          // printf("yahin honn main\n");
           execvp(argv[0],argv);
-          printf("foreground se khatam\n");
+          // printf("foreground se khatam\n");
          }
       else
         {
-        	wait(NULL);
-          // cpid = wait(&status);
-          // while(cpid!=cid)
-          // {
-          //   cpid = wait(&status);
-          //   if(cpid != cid)
-          //   kill(cpid, SIGKILL);
-          // }
+          cpid = wait(&status);
+          while(cpid!=cid)
+          {
+            cpid = wait(&status);
+            if(cpid != cid)
+				kill(cpid, SIGKILL);
+          }
         }
 }

@@ -34,9 +34,9 @@ void addTohist();
 void sig_handler(int signum) {
   int pid = waitpid(-1, NULL, WNOHANG);
   if(pid > 0){
-    fprintf(stderr, "nomaan sexy\n");
+    printf("nomaaaaaaaaan meow\n");
   }
-  printf("sig_handler se gaya\n");
+  // printf("sig_handler se gaya\n");
 }
 extern void vi(char *argv[],int len)
 {
@@ -46,9 +46,9 @@ extern void vi(char *argv[],int len)
     printf("meow\n");
     pid_t cid = fork();
     if(cid==0)
-        { setpgid(0,0);
+        { 
+          setpgid(0,0);
           execvp(argv[0],argv);
-          _exit(0);
         }
       else
         {
