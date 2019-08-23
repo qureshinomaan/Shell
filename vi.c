@@ -36,6 +36,7 @@ void sig_handler(int signum) {
   if(pid > 0){
     fprintf(stderr, "nomaan sexy\n");
   }
+  printf("sig_handler se gaya\n");
 }
 extern void vi(char *argv[],int len)
 {
@@ -47,6 +48,7 @@ extern void vi(char *argv[],int len)
     if(cid==0)
         { setpgid(0,0);
           execvp(argv[0],argv);
+          _exit(0);
         }
       else
         {

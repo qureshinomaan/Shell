@@ -1,2 +1,2 @@
-shell : 
-	gcc *.c -o shell
+shell : *.c
+	gcc  -o shell *.c -I

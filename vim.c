@@ -42,17 +42,19 @@ extern void vim(char *argv[], int len)
     if(cid==0)
         {  
           printf("yahin honn main\n");
+          kill(getpid(),SIGKILL);
           execvp(argv[0],argv);
+          printf("foreground se khatam\n");
          }
       else
         {
-          cpid = wait(&status);
-          printf("wapas\n");
-          while(cpid!=cid)
-          {
-            cpid = wait(&status);
-            if(cpid != cid)
-            kill(cpid, SIGKILL);
-          }
+        	wait(NULL);
+          // cpid = wait(&status);
+          // while(cpid!=cid)
+          // {
+          //   cpid = wait(&status);
+          //   if(cpid != cid)
+          //   kill(cpid, SIGKILL);
+          // }
         }
 }
