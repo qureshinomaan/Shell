@@ -25,6 +25,9 @@ void hostname();
 void echo();
 void showpwd();
 void printEveryTime();
+void history();
+void addTohist();
+
 
 extern void pinfo()
 {

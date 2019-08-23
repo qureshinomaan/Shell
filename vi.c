@@ -25,7 +25,9 @@ void hostname();
 void echo();
 void showpwd();
 void printEveryTime();
+void history();
 void pinfo();
+void addTohist();
 
 
 extern void vi(char *argv[])

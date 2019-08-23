@@ -35,6 +35,8 @@ void echo();
 void showpwd();
 void printEveryTime();
 void pinfo();
+void history();
+void addTohist();
 
 int main(void)
 {
@@ -50,11 +52,13 @@ int main(void)
 		char *everysemi = semicolon;
 		while((command = strtok_r(everysemi, ";",&everysemi)))
 		{
+			addTohist(command);
 			//============================================================//
 			// Getting the command and splitting it. 
 			//============================================================//
 			if(command[strlen(command)-1] == '\n')
 				command[strlen(command)-1]='\0';
+
 			if(strlen(command)!=0)
 		{	strcpy(cpy_cmd,command);
 					every = strtok(command, " ");
@@ -117,6 +121,10 @@ int main(void)
 						else
 							pinfo2(actual_cmd[1]);
 
+					}
+					else if(strcmp(actual_cmd[0], "history")==0)
+					{
+						history();
 					}
 					else
 					{

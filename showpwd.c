@@ -26,6 +26,9 @@ void echo();
 void printEveryTime();
 void pinfo();
 void pinfo2();
+void history();
+void addTohist();
+
 
 extern void showpwd()
 {

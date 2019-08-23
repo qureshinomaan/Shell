@@ -26,6 +26,10 @@ void echo();
 void showpwd();
 void printEveryTime();
 void pinfo();
+void history();
+void addTohist();
+
+
 
 void fileProperties(struct stat stats)
 {
