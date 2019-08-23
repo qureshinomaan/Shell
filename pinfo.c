@@ -21,6 +21,7 @@ void pd();
 void cd();
 void username();
 void vi();
+void vim();
 void hostname();
 void echo();
 void showpwd();

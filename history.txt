@@ -1,0 +1,20 @@
+clear
+vi &
+clear
+clear
+ls
+ks
+ls
+clear
+ls
+ks
+exit
+exit
+exit
+ls
+clear
+ls
+clear
+clear &
+ls
+clear

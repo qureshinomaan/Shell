@@ -1,12 +1,13 @@
-#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 #include<sys/wait.h>
 #include<sys/stat.h>
 #include<fcntl.h>
 #include<unistd.h>
 #include<time.h>
+#include<signal.h>
 #include<sys/types.h>
 
 struct stat statRes;
@@ -21,42 +22,33 @@ void pinfo2();
 void pd();
 void cd();
 void username();
-void vi();
 void hostname();
-void vim();
+void echo();
+void vi();
 void showpwd();
 void printEveryTime();
-void pinfo();
 void history();
+void pinfo();
 void addTohist();
 
 
-
-extern void echo(char hello[])
+extern vim(char *argv[], int len)
 {
-	int i=0,status=0;
-	while(hello[i]==' ')
-		i++;
-	for(i=i+5;i<strlen(hello);i++)
-	{
-		if(hello[i]=='\\')
-		{
-			i++;
-			if(i<strlen(hello))
-				printf("%c",hello[i]);
-		}
-		else if(hello[i]=='\"')
-			status=!status;
-		else if(status==1)
-			printf("%c",hello[i]);
-		else
-		{
-			int t=0;
-			printf("%c",hello[i]);
-			while(hello[i+1]==' ')
-				{i++;t++;}
-			if(t==1)
-				i--;
-		}
-	}
+	printf("bhow\n");
+    pid_t cid = fork();
+    if(cid==0)
+        {  
+          printf("yahin honn main\n");
+          execvp(argv[0],argv);
+         }
+      else
+        {
+          cpid = wait(&status);
+          while(cpid!=cid)
+          {
+            cpid = wait(&status);
+            if(cpid != cid)
+            kill(cpid, SIGKILL);
+          }
+        }
 }

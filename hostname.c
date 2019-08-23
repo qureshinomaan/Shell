@@ -19,6 +19,7 @@ void ls();
 void hme();
 void pd();
 void cd();
+void vim();
 void username();
 void vi();
 void pinfo2();

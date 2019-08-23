@@ -21,6 +21,7 @@ void pd();
 void username();
 void pinfo2();
 void vi();
+void vim();
 void hostname();
 void echo();
 void showpwd();
@@ -28,6 +29,8 @@ void printEveryTime();
 void pinfo();
 void history();
 void addTohist();
+void vim();
+
 
 
 extern void cd()

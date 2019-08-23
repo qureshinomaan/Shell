@@ -21,6 +21,7 @@ void hme();
 void pd();
 void cd();
 void vi();
+void vim();
 void hostname();
 void echo();
 void showpwd();

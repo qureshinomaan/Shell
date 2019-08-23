@@ -30,6 +30,7 @@ void pd();
 void cd();
 void username();
 void vi();
+void vim();
 void hostname();
 void echo();
 void showpwd();
@@ -43,8 +44,10 @@ int main(void)
 	hme();
 	username();
 	hostname();
+	int pid, status;
 	while(1)
 	{
+		printf("pid = %d\n", getpid());
 		char *every, semicolon[100];
 		char *actual_cmd[100],*sccmd[100];
 		printEveryTime();
@@ -128,7 +131,10 @@ int main(void)
 					}
 					else
 					{
-						vi(actual_cmd);
+						if(len>1 && strcmp( actual_cmd[1],"&") ==0 )
+							vi(actual_cmd,len);
+						else
+							vim(actual_cmd, len);
 					}	
 				}
 		}

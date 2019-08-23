@@ -24,6 +24,7 @@ void username();
 void vi();
 void hostname();
 void echo();
+void vim();
 void showpwd();
 void printEveryTime();
 void pinfo();

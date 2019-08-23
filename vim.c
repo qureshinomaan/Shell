@@ -24,32 +24,35 @@ void cd();
 void username();
 void hostname();
 void echo();
-void vim();
+void vi();
 void showpwd();
 void printEveryTime();
 void history();
 void pinfo();
 void addTohist();
 
-void sig_handler(int signum) {
-  int pid = waitpid(-1, NULL, WNOHANG);
-  if(pid > 0){
-    fprintf(stderr, "nomaan sexy\n");
-  }
-}
-extern void vi(char *argv[],int len)
+
+extern void vim(char *argv[], int len)
 {
 	pid_t cpid;
 	int *stat;
 	int status;
-    printf("meow\n");
+	printf("bhow\n");
     pid_t cid = fork();
     if(cid==0)
-        { setpgid(0,0);
+        {  
+          printf("yahin honn main\n");
           execvp(argv[0],argv);
-        }
+         }
       else
         {
-          signal(SIGCHLD, sig_handler);
+          cpid = wait(&status);
+          printf("wapas\n");
+          while(cpid!=cid)
+          {
+            cpid = wait(&status);
+            if(cpid != cid)
+            kill(cpid, SIGKILL);
+          }
         }
 }

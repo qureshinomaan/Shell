@@ -20,6 +20,7 @@ void pd();
 void cd();
 void username();
 void vi();
+void vim();
 void pinfo2();
 void hostname();
 void echo();
