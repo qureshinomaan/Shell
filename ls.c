@@ -66,11 +66,12 @@ void fileProperties(struct stat stats)
 
 }
  
-extern void ls()
+extern void ls(char actual_cmd[])
 {
 	DIR *dir;
 	int l=0,a=0;
 	int i=0;
+	int isdir=0;
 	while(cpy_cmd[i]==' ')
 		i++;
 	i+=3;
@@ -91,6 +92,8 @@ extern void ls()
 						l=1;
 				}
 		}
+		else if(cpy_cmd[i-1] == ' ' && cpy_cmd[i]!='\n')
+			isdir =1;
 	}
  	struct dirent *entry;
 	if ((dir = opendir(pwd)) == NULL )
@@ -102,24 +105,50 @@ extern void ls()
 	      	{
 	      		if(entry->d_name[0]!='.')
 	      		{
-	      			printf("  %10s ", entry->d_name);
-      			if(l==1)
+	      			if(isdir==0)
 	      			{
-	      			    stat(entry->d_name,&statRes);
-	      			    fileProperties(statRes);
+	      				printf("  %10s ", entry->d_name);
+	      			     if(l==1)
+	      				 {
+	      				    stat(entry->d_name,&statRes);
+	      				    fileProperties(statRes);
+	      				  }
+	      				printf("\n");
 	      			}
-	      		printf("\n");
+	      			else if(isdir == 1 && strcmp(entry->d_name,actual_cmd)==0)
+	      			{
+	      				printf("  %10s ", entry->d_name);
+	      			     if(l==1)
+	      				 {
+	      				    stat(entry->d_name,&statRes);
+	      				    fileProperties(statRes);
+	      				  }
+	      				printf("\n");
+	      			}
 	      		}
 	      	}
 	  		else
 	  		{
-	  			printf("  %10s ", entry->d_name);
-	      		if(l==1)
-	      		{
-	      			stat(entry->d_name,&statRes);
-	      			fileProperties(statRes);
-	      		}
-	      		printf("\n");
+	  			if(isdir == 0 )
+	  			{	
+		  			printf("  %10s ", entry->d_name);
+		      		if(l==1)
+		      		{
+		      			stat(entry->d_name,&statRes);
+		      			fileProperties(statRes);
+		      		}
+		      		printf("\n");
+	  			}
+	  			else if(isdir==1 && strcmp(entry->d_name, actual_cmd) == 0)
+	  			{
+	  				printf("  %10s ", entry->d_name);
+		      		if(l==1)
+		      		{
+		      			stat(entry->d_name,&statRes);
+		      			fileProperties(statRes);
+		      		}
+		      		printf("\n");
+	  			}
 	  		}
 	      }
 	    closedir(dir);

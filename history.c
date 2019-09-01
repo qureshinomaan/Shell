@@ -8,6 +8,7 @@
 #include<unistd.h>
 #include<time.h>
 #include<sys/types.h>
+#include<sys/resource.h>
 
 struct stat statRes;
 struct rusage usage;
@@ -22,7 +23,14 @@ int minimum(int a, int b)
 	return a;
 }
 
-extern void history()
+int mini(int a, int b)
+{
+    if(a<b)
+        return a;
+    return b;
+}
+
+extern void history(int last)
 {
 	char path[100];
 	char currentCharacter;
@@ -50,11 +58,13 @@ extern void history()
     	}
     	counter++;
     }
-    for(int i =0;i<lines;i++)
+    int x = mini(last, lines);
+    printf("last - x = %d\n", last);
+    for(int i =10 - last ;i<10;i++)
     	printf("%s", hello[i]);
-
     return ;
 }
+
 
 
 extern void addTohist(char cmd[])
@@ -102,7 +112,5 @@ extern void addTohist(char cmd[])
         	printf("error here\n");
         fclose(f3);
     }
-
-
 	return;
 }

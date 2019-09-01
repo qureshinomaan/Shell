@@ -17,6 +17,9 @@ struct rusage usage;
 char command[100],cpy_cmd[100];
 char home[100],pwd[100],dir[100],user[256],host[256];
 int id;
+char pidname[1000][200];
+int pidnumber;
+int pidlst[20000][2];
 
 void ls();
 void hme();
@@ -33,19 +36,22 @@ void history();
 void pinfo();
 void addTohist();
 
+volatile int total =0;
+
+int pid[10000];
+
 void sig_handler(int signum) {
   int pid = waitpid(-1, NULL, WNOHANG);
   if(pid > 0){
-    printf("nomaaaaaaaaan meow\n");
+    //printf("Process {%s} Successfully exited with {%d} .\n",pidname[pid],pid);
   }
-  // printf("sig_handler se gaya\n");
+// printf("sig_handler se gaya\n");
 }
 extern void vi(char *argv[],int len)
 {
 	pid_t cpid;
 	int *stat;
 	int status;
-    printf("meow\n");
     pid_t cid = fork();
     if(cid==0)
         { 
@@ -54,6 +60,10 @@ extern void vi(char *argv[],int len)
         }
       else
         {
+          pidlst[pidnumber][1] = cid;
+          strcpy(pidname[pidnumber], cpy_cmd);
+          pidnumber++;
+          printf("Child pid : %d\n", cid);
           signal(SIGCHLD, sig_handler);
         }
 }

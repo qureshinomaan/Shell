@@ -6,6 +6,7 @@
 #include<sys/stat.h>
 #include<fcntl.h>
 #include<unistd.h>
+#include<signal.h>
 #include<sys/resource.h>
 #include<time.h>
 #include<sys/types.h>
@@ -14,7 +15,26 @@ extern struct stat statRes;
 extern struct rusage usage;
 extern char *command,cpy_cmd[100];
 extern char home[100],pwd[100],dir[100],user[256],host[256];
+extern int pidlst[20000][2];
+extern int pidnumber;
+extern char pidname[1000][200];
 
+
+
+void pidover()
+{
+	for (int i=0;i<pidnumber;i++)
+	{
+		if(pidlst[i][0]==0)
+		{
+			if(kill(pidlst[i][1], 0)!=0)
+			{
+				printf("%s with pid %d exied \n", pidname[i], pidlst[i][1]);
+				pidlst[i][0]=1;
+			}
+		}
+	}
+}
 
 long long int len(char string[])
 {
@@ -48,7 +68,7 @@ int main(void)
 	int pid, status;
 	while(1)
 	{
-		printf("pid = %d\n", getpid());
+		pidover();
 		char *every, semicolon[100];
 		char *actual_cmd[100],*sccmd[100];
 		printEveryTime();
@@ -117,18 +137,30 @@ int main(void)
 					else if(strcmp(actual_cmd[0],"pwd") == 0)
 						showpwd();
 					else if(strcmp(actual_cmd[0],"ls") == 0)
-						ls();
+						ls(actual_cmd[1]);
 					else if(strcmp(actual_cmd[0],"pinfo") == 0)
 					{
-						if(strlen(actual_cmd[1])==0)
-							pinfo();
+                        if(len<2)
+                            pinfo();
+                        else if(strlen(actual_cmd[1])==0)
+                        {  pinfo();}
 						else
 							pinfo2(actual_cmd[1]);
 
 					}
 					else if(strcmp(actual_cmd[0], "history")==0)
 					{
-						history();
+						if(len == 1)
+							history(10);
+						else if(len == 2)
+						{
+							if(strlen(actual_cmd[1])>0)
+								{
+									history(atoi(actual_cmd[1]));
+								}
+							else 
+								history(10);
+						}
 					}
 					else
 					{

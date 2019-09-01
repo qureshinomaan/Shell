@@ -67,7 +67,7 @@ extern void pinfo2(char *pid)
 	printf("PID %s\n",pid);
 	strcpy(process,"/proc/");
 	//sprintf(pid, "%d", pi);
-	strcat(process,pid);
+    strcat(process,pid); 
 	strcat(process, "/status");
 	status=fopen( process, "r" );
 	size_t ptr;

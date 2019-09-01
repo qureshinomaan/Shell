@@ -46,6 +46,7 @@ extern void vim(char *argv[], int len)
           // printf("yahin honn main\n");
           execvp(argv[0],argv);
           // printf("foreground se khatam\n");
+          _exit(0);
          }
       else
         {
@@ -54,7 +55,7 @@ extern void vim(char *argv[], int len)
           {
             cpid = wait(&status);
             if(cpid != cid)
-				kill(cpid, SIGKILL);
+				      kill(cpid, SIGKILL);
           }
         }
 }
