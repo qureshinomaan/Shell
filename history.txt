@@ -1,20 +1,20 @@
-ls
-cler
-clear
-ls
-ps
-ps
+cafile.txt
 exit
-clear
-ls
-exit
-ls
-ls -l
-clear
+cat file.txt
+cat bello.txt
 exit
 ls
 clear
-ls
+echo this is great
+cat 
+cat 
 exit
-man &
-ps
+cat 
+exit
+ls
+cat bello.txt
+cat bello.txt
+exit
+cat file.txt
+cat file.txt
+exit

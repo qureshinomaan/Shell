@@ -45,16 +45,15 @@ extern void vim(char *argv[], int len)
     {  
 		int fd;
 		fd = open("bello.txt", O_RDWR);
-		printf("here\n");
 		dup2(fd, 1);
+		close(fd);
 		// printf("yahin honn main\n");
 		execvp(argv[0],argv);
 		// printf("foreground se khatam\n");
-		close(fd);
 		_exit(0);
          
     }
-      else
+    else
         {
           cpid = wait(&status);
           while(cpid!=cid)
