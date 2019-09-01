@@ -39,14 +39,14 @@ extern void vim(char *argv[], int len)
 	pid_t cpid;
 	int *stat;
 	int status;
-	printf("bhow\n");
+	//printf("bhow\n");
     pid_t cid = fork();
     if(cid==0)
     {  
 		int fd;
 		fd = open("bello.txt", O_RDWR);
 		printf("here\n");
-		dup2(fd, 0);
+		dup2(fd, 1);
 		// printf("yahin honn main\n");
 		execvp(argv[0],argv);
 		// printf("foreground se khatam\n");
