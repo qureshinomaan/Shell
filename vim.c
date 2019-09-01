@@ -44,7 +44,7 @@ extern void vim(char *argv[], int len)
     if(cid==0)
     {  
 		int fd;
-		fd = open("file.txt", O_WRONLY);
+		fd = open("bello.txt", O_WRONLY);
 		dup2(fd, 0);
 		// printf("yahin honn main\n");
 		execvp(argv[0],argv);
