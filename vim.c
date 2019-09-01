@@ -45,6 +45,7 @@ extern void vim(char *argv[], int len)
     {  
 		int fd;
 		fd = open("bello.txt", O_RDWR);
+		printf("here\n");
 		dup2(fd, 0);
 		// printf("yahin honn main\n");
 		execvp(argv[0],argv);
