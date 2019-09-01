@@ -42,12 +42,16 @@ extern void vim(char *argv[], int len)
 	printf("bhow\n");
     pid_t cid = fork();
     if(cid==0)
-        {  
-          // printf("yahin honn main\n");
-          execvp(argv[0],argv);
-          // printf("foreground se khatam\n");
-          _exit(0);
-         }
+    {  
+		int fd;
+		fd = open("file.txt", O_WRONLY);
+		// printf("yahin honn main\n");
+		execvp(argv[0],argv);
+		// printf("foreground se khatam\n");
+		close(fd);
+		_exit(0);
+         
+    }
       else
         {
           cpid = wait(&status);

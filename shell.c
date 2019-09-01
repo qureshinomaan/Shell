@@ -69,7 +69,7 @@ int main(void)
 	while(1)
 	{
 		pidover();
-		char *every, semicolon[100];
+		char *every, semicolon[100]; 
 		char *actual_cmd[100],*sccmd[100];
 		printEveryTime();
 		fgets(semicolon,100,stdin);
