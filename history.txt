@@ -1,11 +1,3 @@
-cat file.txt > file2.txt
-cat file2.txt
-ls
-cat file.txt > tmp.txt
-exit
-cat file.txt file2.txt
-cat file.txt > file2.txt
-exit
 clear
 cat file.txt > file2.txt
 cat file2.txt
@@ -17,4 +9,12 @@ cat file.txt
 cat file4.txt
 cat file.txt > file4.txt
 cat file4.txt
+exit
+ls
+clear
+cat < file2.txt
+exit
+exit
+cat < file.txt
+cat file2.txt
 exit

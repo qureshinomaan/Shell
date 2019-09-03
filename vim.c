@@ -45,12 +45,13 @@ extern void vim(char *argv[], int len)
     pid_t cid = fork();
     if(cid==0)
     {  
+	//============================================================//
+    	// Input, Output redirection starts here. 
+	//============================================================//
 		int fdin,fdout;
 		if(inputD == 1)
 		{
 			fdin = open(input_file, O_RDWR);
-			if(fdin == -1)
-				{printf("Input File Doesn't Exist.\n");return;}
 			dup2(fdin, 0);
 			close(fdin);
 		}
@@ -71,6 +72,9 @@ extern void vim(char *argv[], int len)
 			dup2(fdout, 1);
 			close(fdout);
 		}
+		//============================================================//
+    	// Input, Output redirection ends here. 
+		//============================================================//
 		// printf("yahin honn main\n");
 		execvp(argv[0],argv);
 		// printf("foreground se khatam\n");
