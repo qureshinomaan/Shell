@@ -49,12 +49,25 @@ extern void vim(char *argv[], int len)
 		if(inputD == 1)
 		{
 			fdin = open(input_file, O_RDWR);
+			if(fdin == -1)
+				{printf("Input File Doesn't Exist.\n");return;}
 			dup2(fdin, 0);
 			close(fdin);
 		}
-		if(outputD == 1)
+		if(outputD == 1 || outputD == 2)
 		{
-			fdout = open(output_file,O_RDWR);
+			// You must give at least one of O_WRONLY, O_RDONLY, O_RDWR
+			if(outputD == 2)
+				fdout = open(output_file,O_APPEND | O_WRONLY);
+			else 
+				fdout = open(output_file,O_WRONLY);
+			if(fdout == -1)
+			{
+				mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
+				fdout = creat(output_file, mode);
+				close(fdout);
+				fdout = open(output_file,O_RDWR);
+			}
 			dup2(fdout, 1);
 			close(fdout);
 		}

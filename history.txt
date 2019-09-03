@@ -1,20 +1,20 @@
-clear
+cat file.txt > file2.txt
+cat file2.txt
 ls
-clear
-cat file.txt > bello.txt
-clear
-cat file.txt > bello.txt
+cat file.txt > tmp.txt
 exit
-cat file.txt > bello.txt
+cat file.txt file2.txt
+cat file.txt > file2.txt
+exit
+clear
+cat file.txt > file2.txt
+cat file2.txt
+exit
+cat file.txt >> file4.txt
+cat file4.txt
+cat file.txt >> file4.txt
 cat file.txt
-exit
-cat file.txt bello.txt
-cat file.txt > bello.txt
-clear
-cat bello.txt
-exit
-ps > bello.txt
-cat bello.txt
-cat < bello.txt > file.txt
-cat file.txt
+cat file4.txt
+cat file.txt > file4.txt
+cat file4.txt
 exit

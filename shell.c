@@ -126,16 +126,21 @@ int main(void)
 						// Checking input, output redirection here. 
 						// direction = 1 means we need to take the input. 
 						// direction = 2 means we need to give the output. 
+						// direction = 3 means we ened to append the output
 						//============================================================//
 						if(direction == 1)
 							{strcpy(input_file, every); direction = 0; inputD = 1; }
 						else if(direction == 2)
-							{strcpy(output_file, every); direction = 0; outputD =1; }
+							{strcpy(output_file, every); direction = 0; outputD = 1; }
+						else if(direction ==3 )
+							{strcpy(output_file, every); direction = 0; outputD = 2;}
 			
 						if(strcmp(every,"<")==0)
 							direction = 1;
 						else if(strcmp(every, ">")==0)
 							direction = 2;
+						else if(strcmp(every, ">>")==0)
+							direction = 3;
 
 						if(direction == 0 && !inputD && !outputD)
 						{
