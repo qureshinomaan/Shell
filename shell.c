@@ -18,7 +18,19 @@ extern char home[100],pwd[100],dir[100],user[256],host[256];
 extern int pidlst[20000][2];
 extern int pidnumber;
 extern char pidname[1000][200];
+extern char input_file[100], output_file[100]; 
 
+//============================================================//
+// Summary about each of the variable used. 
+// statRes ans usage are used in ls to get the information about the file. 
+// command contains a single command after strtok(semicolon).
+// cpy_cmd contains the copy of the full command. 
+// home contains hoem name, pwd contains present working directory.
+// dir, user, host are similar variables for working with directories. 
+// pidlst pidname contains the background processes. 
+// input_file contains the name of input redirection file. 
+// output_file contains the name of output redirection file. 
+//============================================================//
 
 
 void pidover()
@@ -69,22 +81,35 @@ int main(void)
 	while(1)
 	{
 		pidover();
+		int direction =0;
 		char *every, semicolon[100]; 
 		char *actual_cmd[100],*sccmd[100];
 		printEveryTime();
 		fgets(semicolon,100,stdin);
 		char *everysemi = semicolon;
+//============================================================================================//
+// Getting multiple commands and splitting it. 
+//============================================================================================//
 		while((command = strtok_r(everysemi, ";",&everysemi)))
 		{
 			addTohist(command);
 			//============================================================//
-			// Getting the command and splitting it. 
+			// Getting the single command and splitting it. 
+			// cpy_cmd contains the copy of the command we get. 
 			//============================================================//
 			if(command[strlen(command)-1] == '\n')
 				command[strlen(command)-1]='\0';
 
 			if(strlen(command)!=0)
-		{	strcpy(cpy_cmd,command);
+			{	
+					
+
+//============================================================================================//
+// Command Parsing starts here.
+//============================================================================================//
+
+
+					strcpy(cpy_cmd,command);  
 					every = strtok(command, " ");
 					int len=0;
 					while(every!=0)
@@ -96,15 +121,37 @@ int main(void)
 								actual_cmd[len][strlen(actual_cmd[len])-1]='\0';
 							len++;
 						}
+						//============================================================//
+						// Checking input, output redirection here. 
+						// direction = 1 means we need to take the input. 
+						// direction = 2 means we need to give the output. 
+						//============================================================//
+						if(direction == 1)
+							{strcpy(input_file, every); direction = 0;}
+						else if(direction == 2)
+							{strcpy(output_file, every); direction = 0;}
+
+						if(strcmp(every,"<")==0)
+							direction = 1;
+						else if(strcmp(every, ">")==0)
+							direction = 2;
+
+						//============================================================//
+
+
 						every = strtok(0, " ");		
 					}
 					actual_cmd[len]=NULL;
 		
-					//============================================================//
-		
-					//============================================================//
-					// Actual command in the making. 
-					//============================================================//
+					
+//============================================================================================//
+// Command parsing ends here.
+//============================================================================================//
+
+
+//============================================================================================//
+// Checking the command and executing it starts here. 
+//============================================================================================//
 					if(strcmp(actual_cmd[0],"cd") == 0)
 					{
 						if(len == 1)
@@ -168,7 +215,10 @@ int main(void)
 							vi(actual_cmd,len);
 						else
 							vim(actual_cmd, len);
-					}	
+					}
+//============================================================================================//
+// Command Execution ends here.
+//============================================================================================//	
 				}
 		}
 	}
