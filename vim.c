@@ -17,6 +17,8 @@ struct rusage usage;
 char command[100],cpy_cmd[100];
 char home[100],pwd[100],dir[100],user[256],host[256];
 int id;
+char input_file[100], output_file[100]; 
+int inputD, outputD;
 
 void ls();
 void hme();
@@ -43,10 +45,19 @@ extern void vim(char *argv[], int len)
     pid_t cid = fork();
     if(cid==0)
     {  
-		int fd;
-		fd = open("bello.txt", O_RDWR);
-		dup2(fd, 1);
-		close(fd);
+		int fdin,fdout;
+		if(inputD == 1)
+		{
+			fdin = open(input_file, O_RDWR);
+			dup2(fdin, 0);
+			close(fdin);
+		}
+		if(outputD == 1)
+		{
+			fdout = open(output_file,O_RDWR);
+			dup2(fdout, 1);
+			close(fdout);
+		}
 		// printf("yahin honn main\n");
 		execvp(argv[0],argv);
 		// printf("foreground se khatam\n");

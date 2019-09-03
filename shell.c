@@ -19,6 +19,7 @@ extern int pidlst[20000][2];
 extern int pidnumber;
 extern char pidname[1000][200];
 extern char input_file[100], output_file[100]; 
+extern int inputD, outputD;
 
 //============================================================//
 // Summary about each of the variable used. 
@@ -80,6 +81,8 @@ int main(void)
 	int pid, status;
 	while(1)
 	{
+		strcpy(input_file, "\0");
+		strcpy(output_file, "\0");
 		pidover();
 		int direction =0;
 		char *every, semicolon[100]; 
@@ -87,6 +90,7 @@ int main(void)
 		printEveryTime();
 		fgets(semicolon,100,stdin);
 		char *everysemi = semicolon;
+		inputD=0; outputD=0;
 //============================================================================================//
 // Getting multiple commands and splitting it. 
 //============================================================================================//
@@ -116,29 +120,33 @@ int main(void)
 					{
 						if(strcmp(every,"\n")!=0)
 						{
-							actual_cmd[len] = every;
-							if(actual_cmd[len][strlen(actual_cmd[len])-1]=='\n')
-								actual_cmd[len][strlen(actual_cmd[len])-1]='\0';
-							len++;
-						}
+							if(every[strlen(every)-1]=='\n')
+								every[strlen(every)-1]='\0';	
 						//============================================================//
 						// Checking input, output redirection here. 
 						// direction = 1 means we need to take the input. 
 						// direction = 2 means we need to give the output. 
 						//============================================================//
 						if(direction == 1)
-							{strcpy(input_file, every); direction = 0;}
+							{strcpy(input_file, every); direction = 0; inputD = 1; }
 						else if(direction == 2)
-							{strcpy(output_file, every); direction = 0;}
-
+							{strcpy(output_file, every); direction = 0; outputD =1; }
+			
 						if(strcmp(every,"<")==0)
 							direction = 1;
 						else if(strcmp(every, ">")==0)
 							direction = 2;
 
+						if(direction == 0 && !inputD && !outputD)
+						{
+							actual_cmd[len] = every;	
+							if(actual_cmd[len][strlen(actual_cmd[len])-1]=='\n')
+								actual_cmd[len][strlen(actual_cmd[len])-1]='\0';
+							len++;
+						}
 						//============================================================//
 
-
+						}
 						every = strtok(0, " ");		
 					}
 					actual_cmd[len]=NULL;

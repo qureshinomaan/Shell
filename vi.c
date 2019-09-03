@@ -20,6 +20,8 @@ int id;
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][2];
+char input_file[100], output_file[100]; 
+int inputD, outputD;
 
 void ls();
 void hme();
