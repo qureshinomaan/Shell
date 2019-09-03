@@ -72,6 +72,9 @@ void printEveryTime();
 void pinfo();
 void history();
 void addTohist();
+void envSet();
+void unenvSet();
+void kjob();
 
 int main(void)
 {
@@ -192,7 +195,7 @@ int main(void)
 					}
 					else if(strcmp(actual_cmd[0],"echo") == 0)
 						echo(cpy_cmd);
-					else if(strcmp(actual_cmd[0],"exit") == 0)
+					else if(strcmp(actual_cmd[0],"quit") == 0)
 						_exit(0);
 					else if(strcmp(actual_cmd[0],"pwd") == 0)
 						showpwd();
@@ -221,6 +224,14 @@ int main(void)
 							else 
 								history(10);
 						}
+					}
+					else if (strcmp(actual_cmd[0], "setenv") == 0)
+					{
+						envSet(actual_cmd, len);
+					}
+					else if(strcmp(actual_cmd[0], "unsetenv") == 0)
+					{
+						unenvSet(actual_cmd, len);
 					}
 					else
 					{

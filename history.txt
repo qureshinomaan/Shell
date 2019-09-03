@@ -1,20 +1,20 @@
-clear
-cat file.txt > file2.txt
-cat file2.txt
+setenv variable
+printenv
 exit
-cat file.txt >> file4.txt
-cat file4.txt
-cat file.txt >> file4.txt
-cat file.txt
-cat file4.txt
-cat file.txt > file4.txt
-cat file4.txt
-exit
-ls
-clear
-cat < file2.txt
+setenv variable 10
+printenv
+unsetenv variable
+printenv
 exit
 exit
-cat < file.txt
-cat file2.txt
+setenv variable 10
+printenv
+usnetenv variable
+printenv
+unsetenv variable
+exit
+setenv variable 10
+printenv
+unsetenv variable
+printenv
 exit
