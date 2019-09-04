@@ -1,20 +1,20 @@
-setenv variable
-printenv
+kjob 39991 9
+
+clear
 exit
-setenv variable 10
-printenv
-unsetenv variable
-printenv
+quit
+clear
+cat <file.txt
+cat < file.txt
+cat file2.txt
+rm file2.txt
+clear
+ls
+cat < file.txt > file2.txt
+ls
 exit
+quit
+clear
+ls
 exit
-setenv variable 10
-printenv
-usnetenv variable
-printenv
-unsetenv variable
-exit
-setenv variable 10
-printenv
-unsetenv variable
-printenv
-exit
+quit

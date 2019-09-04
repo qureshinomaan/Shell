@@ -1,0 +1,5 @@
+  PID TTY           TIME CMD
+ 6592 ttys000    0:00.05 /Applications/iTerm.app/Contents/MacOS/iTerm2 --server login -fp mohammadnomaanqureshi
+ 6594 ttys000    0:07.68 -zsh
+23710 ttys000    0:00.01 ./shell
+is is a system programming language.This is c programming.This is a system programming language.This is c programming.This is a system programming language.

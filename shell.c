@@ -75,6 +75,7 @@ void addTohist();
 void envSet();
 void unenvSet();
 void kjob();
+void jobs();
 
 int main(void)
 {
@@ -232,6 +233,10 @@ int main(void)
 					else if(strcmp(actual_cmd[0], "unsetenv") == 0)
 					{
 						unenvSet(actual_cmd, len);
+					}
+					else if(strcmp(actual_cmd[0], "kjob") == 0)
+					{
+						kjob(actual_cmd, len);
 					}
 					else
 					{
