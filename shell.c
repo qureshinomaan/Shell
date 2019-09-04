@@ -238,6 +238,10 @@ int main(void)
 					{
 						kjob(actual_cmd, len);
 					}
+					else if(strcmp(actual_cmd[0], "jobs") == 0)
+					{
+						jobs();
+					}
 					else
 					{
 						if(len>1 && strcmp( actual_cmd[1],"&") ==0 )
