@@ -23,7 +23,7 @@ extern void fg(char *argv[], int len)
 	pid_t pid= atoi(argv[1]);
 	printf("GPID OF %d is %d\n",pid, getpgid(pid));
 	printf("GPID OF 0 is %d\n", getpgid(0));
-	int err = tcsetpgrp(1,pid);
+	int err = tcsetpgrp(STDOUT_FILENO,getpid());
 	printf("GPID OF %d is %d\n", pid, getpgid(0));
 
 	return;
