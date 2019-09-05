@@ -22,8 +22,7 @@ extern void fg(char *argv[], int len)
 	int status;
 	if(len!=2)
 		printf("Wrong Number of Arguments!\n");
-	pid_t pid= atoi(argv[1]);
-	//tcsetpgrp(pid);
+	pid_t pid= atoi(argv[1]);	
 
 	return;
 }

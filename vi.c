@@ -19,7 +19,7 @@ char home[100],pwd[100],dir[100],user[256],host[256];
 int id;
 char pidname[1000][200];
 int pidnumber;
-int pidlst[20000][2];
+int pidlst[20000][3];
 char input_file[100], output_file[100]; 
 int inputD, outputD;
 
@@ -65,8 +65,10 @@ extern void vi(char *argv[],int len)
         {
           // fork returns the process id of child to parent and 0 to child process. 
           pidlst[pidnumber][1] = cid;
+          pidlst[pidnumber][2] = getpid();
           strcpy(pidname[pidnumber], cpy_cmd);
           pidnumber++;
+          printf("Parent pid : %d\n", getpid());
           printf("Child pid : %d\n", cid);
           signal(SIGCHLD, sig_handler);
         }
