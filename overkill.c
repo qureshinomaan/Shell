@@ -1,29 +1,29 @@
 #include<dirent.h>
 #include<stdio.h>
-#include<stdlib.h>
 #include<string.h>
+#include<stdlib.h>
 #include<sys/wait.h>
 #include<sys/stat.h>
 #include<fcntl.h>
 #include<unistd.h>
-#include<time.h>
 #include<signal.h>
-#include<sys/types.h>
 #include<sys/resource.h>
+#include<time.h>
+#include<sys/types.h>
 
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][2];
 
-extern void jobs()
+extern void overkill()
 {
-	int count=0;
+	int sig =7;
 	for (int i=0;i<pidnumber;i++)
 	{
 		if(pidlst[i][0]==0)
 		{
-			count++;
-			printf("[%d] Running %s with pid [%d] \n", count, pidname[i], pidlst[i][1]);
+			pid_t pid =pidlst[i][1];
+			kill(pid, sig);
 		}
 	}
 }

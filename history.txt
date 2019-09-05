@@ -1,7 +1,3 @@
-kjob 39991 9
-
-clear
-exit
 quit
 clear
 cat <file.txt
@@ -17,4 +13,8 @@ quit
 clear
 ls
 exit
+quit
+overkill
+ls
+clear
 quit

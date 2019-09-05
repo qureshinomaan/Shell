@@ -76,6 +76,7 @@ void envSet();
 void unenvSet();
 void kjob();
 void jobs();
+void overkill();
 
 int main(void)
 {
@@ -241,6 +242,10 @@ int main(void)
 					else if(strcmp(actual_cmd[0], "jobs") == 0)
 					{
 						jobs();
+					}
+					else if(strcmp(actual_cmd[0], "overkill")==0)
+					{
+						overkill();
 					}
 					else
 					{
