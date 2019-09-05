@@ -25,6 +25,7 @@ extern void fg(char *argv[], int len)
 	printf("GPID OF 0 is %d\n", getpgid(0));
 	int err = setpgid(pid, getpgid(0));
 	printf("%d\n",err);
+	perror("setgpid : ");
 	printf("GPID OF %d is %d\n", pid, getpgid(0));
 
 	return;
