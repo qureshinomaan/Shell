@@ -1,20 +1,20 @@
+ls
+clear
+./test
+clear
 quit
 clear
-cat <file.txt
-cat < file.txt
-cat file2.txt
-rm file2.txt
+./test
+quit
 clear
-ls
-cat < file.txt > file2.txt
-ls
-exit
+./test
 quit
 clear
 ls
-exit
-quit
-overkill
-ls
 clear
+./test
+quti
+quit
+clear
+./test
 quit

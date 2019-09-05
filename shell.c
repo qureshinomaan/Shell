@@ -77,9 +77,14 @@ void unenvSet();
 void kjob();
 void jobs();
 void overkill();
+void fg();
+void INThandler();
+void INThandlerz();
 
 int main(void)
 {
+	signal(SIGINT, INThandler);
+	signal(SIGTSTP, INThandlerz);
 	hme();
 	username();
 	hostname();
@@ -246,6 +251,10 @@ int main(void)
 					else if(strcmp(actual_cmd[0], "overkill")==0)
 					{
 						overkill();
+					}
+					else if(strcmp(actual_cmd[0], "fg"))
+					{
+						fg(actual_cmd, len);
 					}
 					else
 					{
