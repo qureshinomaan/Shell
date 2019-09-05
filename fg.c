@@ -24,5 +24,7 @@ extern void fg(char *argv[], int len)
 	printf("GPID OF %d is %d\n",pid, getpgid(pid));
 	printf("GPID OF 0 is %d\n", getpgid(0));
 	setpgid(pid, getpgid(0));
+	printf("GPID OF %d is %d\n", pid, getpgid(0));
+
 	return;
 }
