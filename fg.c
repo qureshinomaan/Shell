@@ -21,6 +21,8 @@ extern void fg(char *argv[], int len)
 	if(len!=2)
 		printf("Wrong Number of Arguments!\n");
 	pid_t pid= atoi(argv[1]);
+	printf("GPID OF %d is %d\n",pid, getpgid(pid));
+	printf("GPID OF 0 is %d\n", getpgid(0));
 	setpgid(pid, getpgid(0));
 	return;
 }
