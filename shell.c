@@ -252,7 +252,7 @@ int main(void)
 					{
 						overkill();
 					}
-					else if(strcmp(actual_cmd[0], "fg"))
+					else if(strcmp(actual_cmd[0], "fg") ==0)
 					{
 						fg(actual_cmd, len);
 					}
