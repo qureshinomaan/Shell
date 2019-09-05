@@ -83,6 +83,7 @@ extern void vim(char *argv[], int len)
     }
     else
         {
+        	
           cpid = wait(&status);
           while(cpid!=cid)
           {

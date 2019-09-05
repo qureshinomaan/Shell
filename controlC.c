@@ -14,9 +14,6 @@
 
 extern void  INThandler(int sig)
 {
-	 printf("Your signal number is : %d\n", sig);
-     signal(sig, SIG_IGN);
-     kill(getpid(), SIGINT);
-     printf("You Pressed Control+C\n");
      signal(SIGINT, INThandler);
+     fflush(stdout);
 }

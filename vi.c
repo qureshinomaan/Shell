@@ -57,11 +57,13 @@ extern void vi(char *argv[],int len)
     pid_t cid = fork();
     if(cid==0)
         { 
-          setpgid(0,0);
+          //This is the child process. 
+          setpgid(0,1);
           execvp(argv[0],argv);
         }
       else
         {
+          // fork returns the process id of child to parent and 0 to child process. 
           pidlst[pidnumber][1] = cid;
           strcpy(pidname[pidnumber], cpy_cmd);
           pidnumber++;
