@@ -17,7 +17,7 @@ int pidlst[20000][2];
 
 extern void overkill()
 {
-	int sig =7;
+	int sig =9;
 	for (int i=0;i<pidnumber;i++)
 	{
 		if(pidlst[i][0]==0)
