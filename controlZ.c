@@ -14,10 +14,5 @@
 
 extern void  INThandlerz(int sig)
 {
-	printf("meri pid %d\n", getpid());
-     signal(sig, SIG_IGN); //sigign sets the ignore to signal
-     setpgid(0 ,0);
-     printf("merigpid : %d\n",getpgid(0) );
-     printf("meri pid %d\n", getpid());
-     signal(SIGTSTP, INThandlerz);
+	signal(SIGTSTP, INThandlerz);
 }
