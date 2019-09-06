@@ -81,6 +81,8 @@ void overkill();
 void fg();
 void INThandler();
 void INThandlerz();
+void execute_cmd();
+
 
 int main(void)
 {
@@ -95,9 +97,9 @@ int main(void)
 		strcpy(input_file, "\0");
 		strcpy(output_file, "\0");
 		pidover();
-		int direction =0;
+		int direction =0, cmdcnt=0;
 		char *every, semicolon[100]; 
-		char *actual_cmd[100],*sccmd[100];
+		char *actual_cmd[10][100],*sccmd[100];
 		printEveryTime();
 		fgets(semicolon,100,stdin);
 		char *everysemi = semicolon;
@@ -145,7 +147,8 @@ int main(void)
 							{strcpy(output_file, every); direction = 0; outputD = 1; }
 						else if(direction ==3 )
 							{strcpy(output_file, every); direction = 0; outputD = 2;}
-			
+				
+
 						if(strcmp(every,"<")==0)
 							direction = 1;
 						else if(strcmp(every, ">")==0)
@@ -155,9 +158,9 @@ int main(void)
 
 						if(direction == 0 && !inputD && !outputD)
 						{
-							actual_cmd[len] = every;	
-							if(actual_cmd[len][strlen(actual_cmd[len])-1]=='\n')
-								actual_cmd[len][strlen(actual_cmd[len])-1]='\0';
+							actual_cmd[cmdcnt][len] = every;	
+							if(actual_cmd[cmdcnt][len][strlen(actual_cmd[cmdcnt][len])-1]=='\n')
+								actual_cmd[cmdcnt][len][strlen(actual_cmd[cmdcnt][len])-1]='\0';
 							len++;
 						}
 						//============================================================//
@@ -165,7 +168,7 @@ int main(void)
 						}
 						every = strtok(0, " ");		
 					}
-					actual_cmd[len]=NULL;
+					actual_cmd[cmdcnt][len]=NULL;
 		
 					
 //============================================================================================//
@@ -176,94 +179,7 @@ int main(void)
 //============================================================================================//
 // Checking the command and executing it starts here. 
 //============================================================================================//
-					if(strcmp(actual_cmd[0],"cd") == 0)
-					{
-						if(len == 1)
-						{
-							strcpy(dir,home);
-							cd();
-						}
-						else
-						{	
-							if(strlen(actual_cmd[1])!=0 && actual_cmd[1][0]!='~')
-								strcpy(dir,actual_cmd[1]);
-							else if(actual_cmd[1][0]=='~'&&strlen(actual_cmd[1])!=1)
-							{
-								char newcommand[100];
-								newcommand[0] = '/';
-								for(int i=1;i<strlen(actual_cmd[1]);i++)
-									newcommand[i] = actual_cmd[1][i];
-								strcpy(dir, home);
-								strcat(dir, newcommand);
-							}
-							else 
-								strcpy(dir,home);
-							cd();
-						}
-					}
-					else if(strcmp(actual_cmd[0],"echo") == 0)
-						echo(cpy_cmd);
-					else if(strcmp(actual_cmd[0],"quit") == 0)
-						_exit(0);
-					else if(strcmp(actual_cmd[0],"pwd") == 0)
-						showpwd();
-					else if(strcmp(actual_cmd[0],"ls") == 0)
-						ls(actual_cmd[1]);
-					else if(strcmp(actual_cmd[0],"pinfo") == 0)
-					{
-                        if(len<2)
-                            pinfo();
-                        else if(strlen(actual_cmd[1])==0)
-                        {  pinfo();}
-						else
-							pinfo2(actual_cmd[1]);
-
-					}
-					else if(strcmp(actual_cmd[0], "history")==0)
-					{
-						if(len == 1)
-							history(10);
-						else if(len == 2)
-						{
-							if(strlen(actual_cmd[1])>0)
-								{
-									history(atoi(actual_cmd[1]));
-								}
-							else 
-								history(10);
-						}
-					}
-					else if (strcmp(actual_cmd[0], "setenv") == 0)
-					{
-						envSet(actual_cmd, len);
-					}
-					else if(strcmp(actual_cmd[0], "unsetenv") == 0)
-					{
-						unenvSet(actual_cmd, len);
-					}
-					else if(strcmp(actual_cmd[0], "kjob") == 0)
-					{
-						kjob(actual_cmd, len);
-					}
-					else if(strcmp(actual_cmd[0], "jobs") == 0)
-					{
-						jobs();
-					}
-					else if(strcmp(actual_cmd[0], "overkill")==0)
-					{
-						overkill();
-					}
-					else if(strcmp(actual_cmd[0], "fg") == 0)
-					{
-						fg(actual_cmd, len);
-					}
-					else
-					{
-						if(len>1 && strcmp( actual_cmd[1],"&") ==0 )
-							vi(actual_cmd,len);
-						else
-							vim(actual_cmd, len);
-					}
+					execute_cmd(actual_cmd[cmdcnt], len);
 //============================================================================================//
 // Command Execution ends here.
 //============================================================================================//	
