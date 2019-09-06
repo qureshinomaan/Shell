@@ -20,6 +20,7 @@ extern int pidnumber;
 extern char pidname[1000][200];
 extern char input_file[100], output_file[100]; 
 extern int inputD, outputD;
+extern int current_fg;
 
 //============================================================//
 // Summary about each of the variable used. 

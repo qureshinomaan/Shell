@@ -14,6 +14,7 @@
 
 extern void  INThandler(int sig)
 {
-     signal(SIGINT, INThandler);
+
+     signal(SIGINT, INThandler);     
      fflush(stdout);
 }

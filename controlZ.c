@@ -11,6 +11,7 @@
 #include<time.h>
 #include<sys/types.h>
 
+int current_fg;
 
 extern void  INThandlerz(int sig)
 {

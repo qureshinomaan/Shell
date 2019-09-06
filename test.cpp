@@ -4,6 +4,6 @@ using namespace std;
 int main(void)
 {
 	int n;
-	cin>>n;
+	while(1);
 	return 0;
 }

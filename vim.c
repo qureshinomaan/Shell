@@ -19,6 +19,7 @@ char home[100],pwd[100],dir[100],user[256],host[256];
 int id;
 char input_file[100], output_file[100]; 
 int inputD, outputD;
+int current_fg;
 
 void ls();
 void hme();
@@ -76,6 +77,9 @@ extern void vim(char *argv[], int len)
     	// Input, Output redirection ends here. 
 		//============================================================//
 		// printf("yahin honn main\n");
+		printf("group id = %d\n", getpgid(0));
+		printf("pid = %d\n", getpid());
+		current_fg = getpid();
 		execvp(argv[0],argv);
 		// printf("foreground se khatam\n");
 		_exit(0);
@@ -84,12 +88,13 @@ extern void vim(char *argv[], int len)
     else
         {
         	
-          cpid = wait(&status);
-          while(cpid!=cid)
-          {
-            cpid = wait(&status);
-            if(cpid != cid)
-				      kill(cpid, SIGKILL);
-          }
+          current_fg = wait(&status);
+          printf("cpid = %d\n", cpid);
+          // while(cpid!=cid)
+          // {
+          //   cpid = wait(&status);
+          //   if(cpid != cid)
+				      // kill(cpid, SIGKILL);
+          // }
         }
 }
