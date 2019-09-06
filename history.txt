@@ -1,20 +1,20 @@
+ps | cat  | wc -l
+cat < file.txt | wc -l
+ps | cat 
+ps | cat | cat
+cat < file.txt | wc -l
 clear
-ls
-clear
-bla
-vim
-clear
-ls
-clear
+cat < file.txt | ps
+ps
 quit
-ls
-clear
-ls
+ps | cat
+cat < file.txt | wc 
+quit
+cat < file.txt | wc
+quit
 clear
 ps
-clear
-this
-clear
-why
-clear
+cat < file.txt | ps
+cat < file.txt | wd
+cat < file.txt | wc
 quit

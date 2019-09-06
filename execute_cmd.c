@@ -51,6 +51,9 @@ void INThandlerz();
 
 extern void execute_cmd(char *actual_cmd[], int len)
 {
+	if( actual_cmd[0] == NULL)
+		return ;
+	printf("Command is : %s\n", actual_cmd[0]);
 	if(strcmp(actual_cmd[0],"cd") == 0)
 					{
 						if(len == 1)

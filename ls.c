@@ -98,7 +98,7 @@ extern void ls(char actual_cmd[])
  	struct dirent *entry;
 	if ((dir = opendir(pwd)) == NULL )
 		perror("opendir() error");
-	else {
+	else {		
 	    while ((entry = readdir(dir)) != NULL)
 	      {
 	      	if(a==0)
@@ -115,7 +115,7 @@ extern void ls(char actual_cmd[])
 	      				  }
 	      				printf("\n");
 	      			}
-	      			else if(isdir == 1 && strcmp(entry->d_name,actual_cmd)==0)
+	      			else if(isdir == 1)
 	      			{
 	      				printf("  %10s ", entry->d_name);
 	      			     if(l==1)
@@ -126,6 +126,7 @@ extern void ls(char actual_cmd[])
 	      				printf("\n");
 	      			}
 	      		}
+
 	      	}
 	  		else
 	  		{
@@ -139,7 +140,7 @@ extern void ls(char actual_cmd[])
 		      		}
 		      		printf("\n");
 	  			}
-	  			else if(isdir==1 && strcmp(entry->d_name, actual_cmd) == 0)
+	  			else if(isdir==1)
 	  			{
 	  				printf("  %10s ", entry->d_name);
 		      		if(l==1)

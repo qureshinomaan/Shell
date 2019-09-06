@@ -21,6 +21,9 @@ extern char pidname[1000][200];
 extern char input_file[100], output_file[100]; 
 extern int inputD, outputD;
 extern int current_fg;
+extern int amIPiped[100], isNxtPiped[100];
+extern int piping[100][2];
+extern int cmdcnt;
 
 //============================================================//
 // Summary about each of the variable used. 
@@ -97,7 +100,7 @@ int main(void)
 		strcpy(input_file, "\0");
 		strcpy(output_file, "\0");
 		pidover();
-		int direction =0, cmdcnt=0;
+		int direction =0;
 		char *every, semicolon[100]; 
 		char *actual_cmd[10][100],*sccmd[100];
 		printEveryTime();
@@ -124,13 +127,19 @@ int main(void)
 //============================================================================================//
 // Command Parsing starts here.
 //============================================================================================//
-
+					for(int i =0;i<=cmdcnt;i++)
+						{isNxtPiped[i]=0; amIPiped[i]=0;}
 
 					strcpy(cpy_cmd,command);  
 					every = strtok(command, " ");
 					int len=0;
+					cmdcnt =0;
 					while(every!=0)
 					{
+
+						int pipeD=0;
+						printf("%s\n", every);
+
 						if(strcmp(every,"\n")!=0)
 						{
 							if(every[strlen(every)-1]=='\n')
@@ -155,8 +164,22 @@ int main(void)
 							direction = 2;
 						else if(strcmp(every, ">>")==0)
 							direction = 3;
+						else if(strcmp(every, "|") == 0)
+						{
 
-						if(direction == 0 && !inputD && !outputD)
+							isNxtPiped[cmdcnt] = 1;
+							actual_cmd[cmdcnt][len]=NULL;
+							pipe(piping[cmdcnt]);
+							execute_cmd(actual_cmd[cmdcnt], len);
+							cmdcnt++;
+							len =0;
+							amIPiped[cmdcnt] = 1;
+							direction  = 0;
+							pipeD =1;
+							inputD = 0;
+							outputD =0;
+						}
+						if(direction == 0 && !inputD && !outputD && !pipeD)
 						{
 							actual_cmd[cmdcnt][len] = every;	
 							if(actual_cmd[cmdcnt][len][strlen(actual_cmd[cmdcnt][len])-1]=='\n')

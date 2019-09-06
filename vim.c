@@ -20,6 +20,9 @@ int id;
 char input_file[100], output_file[100]; 
 int inputD, outputD;
 int current_fg;
+int amIPiped[100] , isNxtPiped[100] ;
+int piping[100][2];
+int cmdcnt;
 
 void ls();
 void hme();
@@ -76,20 +79,40 @@ extern void vim(char *argv[], int len)
 		//============================================================//
     	// Input, Output redirection ends here. 
 		//============================================================//
-		// printf("yahin honn main\n");
-		printf("group id = %d\n", getpgid(0));
-		printf("pid = %d\n", getpid());
-		current_fg = getpid();
+
+		//============================================================//
+    	// Piping starts here. 
+		//============================================================//
+
+		if(amIPiped[cmdcnt] == 1)
+		{
+			dup2(piping[cmdcnt-1][0], 0);
+			close(piping[cmdcnt-1][1]);
+			close(piping[cmdcnt-1][0]);
+		}
+		if(isNxtPiped[cmdcnt] == 1)
+		{
+			dup2(piping[cmdcnt][1], 1);
+			close(piping[cmdcnt][0]);
+			close(piping[cmdcnt][1]);
+		}
+
+		//============================================================//
+    	// Piping ends here. 
+		//============================================================//
 		execvp(argv[0],argv);
-		// printf("foreground se khatam\n");
+		printf("foreground se khatam\n");
 		_exit(0);
          
     }
     else
         {
-        	
-          current_fg = wait(&status);
-          printf("cpid = %d\n", cpid);
+        if(amIPiped[cmdcnt] == 1)
+          {
+          	close(piping[cmdcnt-1][1]);
+          	close(piping[cmdcnt-1][0]);
+        }
+          waitpid(-1, &status, WUNTRACED );
           // while(cpid!=cid)
           // {
           //   cpid = wait(&status);
