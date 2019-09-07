@@ -42,7 +42,7 @@ void addTohist();
 
 void sigconhandler(int sig)
 {
-	kill(0,9);
+	kill(getpid(),SIGINT);
 	setpgid(0,getppid());
 }
 
