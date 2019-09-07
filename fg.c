@@ -33,9 +33,8 @@ extern void fg(char *argv[], int len)
 	{
 		printf("here\n");
 		tcsetpgrp(0, getpid());
-		error= kill(getpid(), SIGCONT);
-		if(error == -1)
-		perror("");
+		setpgid(getpid(), getpid());
+		kill(getpid(), SIGCONT);
 	}
 	return;
 }
