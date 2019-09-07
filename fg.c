@@ -28,6 +28,8 @@ extern void fg(char *argv[], int len)
 	kill(pid, SIGCONT);
 	signal(SIGTTOU, SIG_IGN);
 	waitpid(-1, &status, WUNTRACED);
+
+	pid_t stdin_PGID;
 	 stdin_PGID = tcgetpgrp(STDIN_FILENO);
      if (stdin_PGID == -1) {
         printf("Could not get PGID for stdin.n");
