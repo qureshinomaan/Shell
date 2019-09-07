@@ -27,11 +27,14 @@ extern void fg(char *argv[], int len)
 	if(error == -1)
 		perror("");
 	kill(pid, SIGCONT);
-	waitpid(-1, &status, WUNTRACED );
-	printf("here\n");
-	tcsetpgrp(0, getpid());
-	error= kill(getpid(), SIGCONT);
-	if(error == -1)
+	if(getpgid(pid)!= getpid())
+	{
+		waitpid(-1, &status, WUNTRACED );
+		printf("here\n");
+		tcsetpgrp(0, getpid());
+		error= kill(getpid(), SIGCONT);
+		if(error == -1)
 		perror("");
+	}
 	return;
 }
