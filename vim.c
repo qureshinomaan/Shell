@@ -55,7 +55,7 @@ extern void vim(char *argv[], int len)
     pid_t cid = fork();
     if(cid==0)
     {  
-    	signal(SIGCONT, sigconhandler);
+    	//signal(SIGCONT, sigconhandler);
 	//============================================================//
     	// Input, Output redirection starts here. 
 	//============================================================//
