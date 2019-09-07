@@ -40,6 +40,11 @@ void pinfo();
 void addTohist();
 
 
+void sigconhandler(int sig)
+{
+	setpgid(0,getppid());
+}
+
 extern void vim(char *argv[], int len)
 {
 	pid_t cpid;
@@ -49,6 +54,7 @@ extern void vim(char *argv[], int len)
     pid_t cid = fork();
     if(cid==0)
     {  
+    	signal(SIGCONT, sigconhandler);
 	//============================================================//
     	// Input, Output redirection starts here. 
 	//============================================================//
