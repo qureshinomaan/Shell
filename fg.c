@@ -24,6 +24,6 @@ extern void fg(char *argv[], int len)
 		printf("Wrong Number of Arguments!\n");
 	pid_t pid= atoi(argv[1]);
 	kill(pid, SIGCONT);
-
+	waitpid(-1, &status, WUNTRACED );
 	return;
 }
