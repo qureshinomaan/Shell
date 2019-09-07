@@ -35,6 +35,7 @@ extern void fg(char *argv[], int len)
 		printf("here1\n");
 		printf("%d\n", getpid());
 		raise(SIGCONT);
+		signal(SIGTTOU, SIG_IGN);
 		printf("here2\n");
 		printf("here3\n");
 	}
