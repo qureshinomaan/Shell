@@ -105,6 +105,7 @@ int main(void)
 		char *actual_cmd[10][100],*sccmd[100];
 		printEveryTime();
 		printf("here1\n");
+		tcsetpgrp(0,0);
 		fgets(semicolon,100,stdin);
 		printf("here2\n");
 		char *everysemi = semicolon;
