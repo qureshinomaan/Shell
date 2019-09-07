@@ -19,11 +19,12 @@ struct stat statRes;
 
 extern void fg(char *argv[], int len)
 {
-	int status;
+	int status, error;
 	if(len!=2)
 		printf("Wrong Number of Arguments!\n");
 	pid_t pid= atoi(argv[1]);
-	int error = tcsetpgrp(0, pid);
+	if(getpgid(pid)!= getpid())
+		error = tcsetpgrp(0, pid);
 	if(error == -1)
 		perror("");
 	kill(pid, SIGCONT);
