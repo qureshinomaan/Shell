@@ -26,17 +26,10 @@ extern void fg(char *argv[], int len)
 	if(getpgid(pid)!= getpid())
 		tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);
-	waitpid(-1, &status, WUNTRACED );
+	waitpid(-1, &status, WUNTRACED | WIFEXITED );
 	if(getpgid(pid)!= getpid())
 	{
-		printf("here\n");
-		if(error == -1)
-			perror("");
-		printf("here1\n");
-		printf("%d\n", getpid());
-		raise(SIGCONT);
-		signal(SIGTSTP, SIG_IGN);
-		printf("here2\n");
+		fflush(stdout);
 		printf("here3\n");
 	}
 	return;
