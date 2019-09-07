@@ -30,6 +30,10 @@ extern void fg(char *argv[], int len)
 	waitpid(-1, &status, WUNTRACED);
 	pid_t stdin_PGID;
     stdin_PGID = tcgetpgrp(STDIN_FILENO);
-	tcsetpgrp(STDIN_FILENO, stdin_PGID);
+	if (tcsetpgrp(STDIN_FILENO, stdin_PGID) == -1) {
+        printf("Could not set PGID.n");
+        return(EXIT_FAILURE);
+     }
+     printf("The PGID has been changed to %d.n", stdin_PGID);
 	return;
 }
