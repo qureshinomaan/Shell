@@ -30,6 +30,6 @@ extern void fg(char *argv[], int len)
 	waitpid(-1, &status, WUNTRACED);
 	pid_t stdin_PGID;
     stdin_PGID = tcgetpgrp(STDIN_FILENO);
-	tcsetpgrp(STDIN_FILENO, stdin_PGID)
+	tcsetpgrp(STDIN_FILENO, stdin_PGID);
 	return;
 }
