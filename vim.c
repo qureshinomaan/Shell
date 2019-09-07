@@ -42,6 +42,7 @@ void addTohist();
 
 void sigconhandler(int sig)
 {
+	printf("here\n");
 	setpgid(0,getppid());
 }
 
