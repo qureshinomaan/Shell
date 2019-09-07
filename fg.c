@@ -24,9 +24,7 @@ extern void fg(char *argv[], int len)
 		printf("Wrong Number of Arguments!\n");
 	pid_t pid= atoi(argv[1]);
 	if(getpgid(pid)!= getpid())
-		error = tcsetpgrp(0, pid);
-	if(error == -1)
-		perror("");
+		tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);
 	waitpid(-1, &status, WUNTRACED );
 	if(getpgid(pid)!= getpid())
@@ -34,7 +32,9 @@ extern void fg(char *argv[], int len)
 		printf("here\n");
 		tcsetpgrp(0, getpid());
 		setpgid(getpid(), getpid());
+		printf("here1\n");
 		kill(getpid(), SIGCONT);
+		printf("here2\n");
 	}
 	return;
 }
