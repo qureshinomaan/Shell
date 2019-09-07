@@ -26,7 +26,7 @@ extern void fg(char *argv[], int len)
 	if(getpgid(pid)!= getpid())
 		tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);
-	waitpid(-1, &status, WUNTRACED | WIFEXITED );
+	waitpid(-1, &status, WUNTRACED | WEXITED );
 	if(getpgid(pid)!= getpid())
 	{
 		fflush(stdout);
