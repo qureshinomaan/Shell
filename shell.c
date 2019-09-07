@@ -104,7 +104,9 @@ int main(void)
 		char *every, semicolon[100]; 
 		char *actual_cmd[10][100],*sccmd[100];
 		printEveryTime();
+		printf("here1\n");
 		fgets(semicolon,100,stdin);
+		printf("here2\n");
 		char *everysemi = semicolon;
 		inputD=0; outputD=0;
 //============================================================================================//
