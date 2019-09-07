@@ -34,6 +34,7 @@ extern void fg(char *argv[], int len)
 		if(error == -1)
 			perror("");
 		printf("here1\n");
+		printf("%d\n", getpid());
 		tcsetpgrp(0, getpid());
 		printf("here2\n");
 		printf("here3\n");
