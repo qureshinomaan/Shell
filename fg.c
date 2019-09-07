@@ -29,5 +29,6 @@ extern void fg(char *argv[], int len)
 	kill(pid, SIGCONT);
 	waitpid(-1, &status, WUNTRACED );
 	tcsetpgrp(0, getpid());
+	kill(getpid(), SIGCONT);
 	return;
 }
