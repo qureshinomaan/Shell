@@ -30,6 +30,7 @@ extern void fg(char *argv[], int len)
 	waitpid(-1, &status, WUNTRACED);
 	pid_t stdin_PGID;
     stdin_PGID = tcgetpgrp(STDIN_FILENO);
+    printf("here1\n");
 	if (tcsetpgrp(STDIN_FILENO, stdin_PGID) == -1) {
         printf("Could not set PGID.n");
         return(EXIT_FAILURE);
