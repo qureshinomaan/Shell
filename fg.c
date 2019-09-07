@@ -28,10 +28,12 @@ extern void fg(char *argv[], int len)
 	kill(pid, SIGCONT);
 	signal(SIGTTOU, SIG_IGN);
 	waitpid(-1, &status, WUNTRACED);
-	pid_t stdin_PGID;
-    stdin_PGID = tcgetpgrp(STDIN_FILENO);
-    printf("here1\n");
-	if (tcsetpgrp(STDIN_FILENO, stdin_PGID) == -1) {
+	 stdin_PGID = tcgetpgrp(STDIN_FILENO);
+     if (stdin_PGID == -1) {
+        printf("Could not get PGID for stdin.n");
+        return(EXIT_FAILURE);
+     }
+	else if (tcsetpgrp(STDIN_FILENO, stdin_PGID) == -1) {
         printf("Could not set PGID.n");
         return(EXIT_FAILURE);
      }
