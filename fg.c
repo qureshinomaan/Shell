@@ -30,7 +30,7 @@ extern void fg(char *argv[], int len)
 	if(getpgid(pid)!= getpid())
 	{
 		printf("here\n");
-		error = kill(getpid(), SIGCONT);
+		raise(SIGCONT);
 		if(error == -1)
 			perror("");
 		printf("here1\n");
