@@ -95,7 +95,7 @@ int main(void)
 	username();
 	hostname();
 	int pid, status;
-	while(1)
+	while(waitpid(-1, &status, WUNTRACED ))
 	{
 		strcpy(input_file, "\0");
 		strcpy(output_file, "\0");

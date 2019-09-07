@@ -1,8 +1,3 @@
-ps | cat  | wc -l
-cat < file.txt | wc -l
-ps | cat 
-ps | cat | cat
-cat < file.txt | wc -l
 clear
 cat < file.txt | ps
 ps
@@ -17,4 +12,9 @@ ps
 cat < file.txt | ps
 cat < file.txt | wd
 cat < file.txt | wc
+quit
+ls
+clear
+ps
+clear
 quit
