@@ -28,10 +28,6 @@ extern void fg(char *argv[], int len)
 	kill(pid, SIGCONT);
 	signal(SIGTTOU, SIG_IGN);
 	waitpid(-1, &status, WUNTRACED);
-	if(getpgid(pid)!= getpid())
-	{
-		fflush(stdout);
-		printf("here3\n");
-	}
+	setpgid(0, pid);
 	return;
 }
