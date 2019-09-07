@@ -30,6 +30,8 @@ extern void fg(char *argv[], int len)
 	waitpid(-1, &status, WUNTRACED );
 	printf("here\n");
 	tcsetpgrp(0, getpid());
-	kill(getpid(), SIGCONT);
+	error= kill(getpid(), SIGCONT);
+	if(error == -1)
+		perror("");
 	return;
 }
