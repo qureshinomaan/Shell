@@ -28,6 +28,7 @@ extern void fg(char *argv[], int len)
 		perror("");
 	kill(pid, SIGCONT);
 	waitpid(-1, &status, WUNTRACED );
+	printf("here\n");
 	tcsetpgrp(0, getpid());
 	kill(getpid(), SIGCONT);
 	return;
