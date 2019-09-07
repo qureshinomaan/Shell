@@ -25,7 +25,7 @@ extern void fg(char *argv[], int len)
 	pid_t pid= atoi(argv[1]);
 	int error= setpgid(pid, getpid());
 	if(error == -1)
-		printf("error here\n");
+		perror("");
 	kill(pid, SIGCONT);
 	waitpid(-1, &status, WUNTRACED );
 	return;
