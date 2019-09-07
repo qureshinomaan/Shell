@@ -30,10 +30,9 @@ extern void fg(char *argv[], int len)
 	if(getpgid(pid)!= getpid())
 	{
 		printf("here\n");
-		tcsetpgrp(0, getpid());
-		setpgid(getpid(), getpid());
-		printf("here1\n");
 		kill(getpid(), SIGCONT);
+		tcsetpgrp(0, getpid());
+		printf("here1\n");
 		printf("here2\n");
 	}
 	return;
