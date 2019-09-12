@@ -56,6 +56,7 @@ extern void echo(char *argv[], int len)
 	//============================================================//
 		int fdin,fdout;
 		int i=0,stt=0;
+		printf("here\n");
 		for(int j=0;j<len;j++)
 			{	
 				printf("%s ", argv[i]);
