@@ -42,7 +42,12 @@ void addTohist();
 extern void echo(char *argv[], int len)
 {
 
-	printf("In Echo\n");
+	int i=0,stt=0;
+		for(i=0;i<len;i++)
+			{	
+				printf("%s ", argv[i]);
+			}
+
 	pid_t cpid;
 	int *stat;
 	int status;
@@ -105,11 +110,7 @@ extern void echo(char *argv[], int len)
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		int i=0,stt=0;
-		for(i=0;i<len;i++)
-			{	
-				printf("%s ", argv[i]);
-			}
+		
 		
 		_exit(0);
 	}
