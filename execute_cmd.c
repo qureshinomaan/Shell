@@ -83,7 +83,7 @@ extern void execute_cmd(char *actual_cmd[], int len)
 						{
 							for(int i=0;i<len;i++)
 							{	
-								printf("%s ", argv[i]);
+								printf("%s ", actual_cmd[i]);
 							}
 							echo(actual_cmd, len);
 						}
