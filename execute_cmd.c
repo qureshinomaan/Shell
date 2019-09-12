@@ -81,7 +81,7 @@ extern void execute_cmd(char *actual_cmd[], int len)
 					}
 					else if(strcmp(actual_cmd[0],"echo") == 0)
 						{
-							for(i=0;i<len;i++)
+							for(int i=0;i<len;i++)
 							{	
 								printf("%s ", argv[i]);
 							}
