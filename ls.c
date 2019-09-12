@@ -224,4 +224,13 @@ extern void ls(char actual_cmd[])
 	}
 	_exit(0);
 	}
+	else
+	{
+		if(amIPiped[cmdcnt] == 1)
+          {
+          	close(piping[cmdcnt-1][1]);
+          	close(piping[cmdcnt-1][0]);
+        }
+        waitpid(-1, &status, WUNTRACED );
+	}
 }
