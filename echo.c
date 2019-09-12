@@ -55,10 +55,7 @@ extern void echo(char *argv[], int len)
     	// Input, Output redirection starts here. 
 	//============================================================//
 		int fdin,fdout;
-		int i=0,stt=0;
-		printf("here\n");
-		for (int t=0;t<len;t++)
-			printf("%s\n",argv[t]);
+		
 		if(inputD == 1)
 		{
 			printf("In Input Redirection\n");
@@ -110,7 +107,12 @@ extern void echo(char *argv[], int len)
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		
+		for (int t=0;t<len;t++)
+		{	
+			if( !strcmp(argv[0], ">") || !strcmp(argv[0], "<") || !strcmp(argv[0], "|"))
+				break;
+			printf("%s ",argv[t]);
+		}
 		
 		_exit(0);
 	}
