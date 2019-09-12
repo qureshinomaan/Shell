@@ -42,11 +42,7 @@ void addTohist();
 extern void echo(char *argv[], int len)
 {
 
-	int i=0,stt=0;
-		for(i=0;i<len;i++)
-			{	
-				printf("%s ", argv[i]);
-			}
+	
 
 	pid_t cpid;
 	int *stat;
@@ -59,6 +55,11 @@ extern void echo(char *argv[], int len)
     	// Input, Output redirection starts here. 
 	//============================================================//
 		int fdin,fdout;
+		int i=0,stt=0;
+		for(i=0;i<len;i++)
+			{	
+				printf("%s ", argv[i]);
+			}
 		if(inputD == 1)
 		{
 			printf("In Input Redirection\n");
