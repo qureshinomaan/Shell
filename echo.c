@@ -108,6 +108,7 @@ extern void echo(char *argv[], int len)
 		int i=1,stt=0;
 		while(argv[i]!=NULL)
 			{
+				printf("here\n");
 				printf("%s ", argv[i]);
 				i++;
 			}
