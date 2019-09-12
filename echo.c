@@ -105,11 +105,11 @@ extern void echo(char *argv[], int len)
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		int i=1,stt=0;
+		int i=0,stt=0;
 		while(argv[i]!=NULL)
 			{
 				printf("here\n");
-				printf("%s ", argv[i]);
+				printf("%s ", argv[0]);
 				i++;
 			}
 		
