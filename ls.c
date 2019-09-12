@@ -126,7 +126,6 @@ extern void ls(char actual_cmd[])
 	      				printf("\n");
 	      			}
 	      		}
-
 	      	}
 	  		else
 	  		{

@@ -1,12 +1,13 @@
-#include<stdlib.h>
 #include<dirent.h>
 #include<stdio.h>
+#include<stdlib.h>
 #include<string.h>
 #include<sys/wait.h>
 #include<sys/stat.h>
 #include<fcntl.h>
 #include<unistd.h>
 #include<time.h>
+#include<signal.h>
 #include<sys/types.h>
 #include<sys/resource.h>
 
@@ -29,19 +30,24 @@ void pinfo2();
 void pd();
 void cd();
 void username();
-void vi();
 void hostname();
-void vim();
+void echo();
+void vi();
 void showpwd();
 void printEveryTime();
-void pinfo();
 void history();
+void pinfo();
 void addTohist();
 
 
-extern void echo(char hello[])
+void sigconhandler(int sig)
 {
+	kill(getpid(),SIGINT);
+	setpgid(0,getppid());
+}
 
+extern void my_command(char *argv[], int len)
+{
 	pid_t cpid;
 	int *stat;
 	int status;
@@ -49,6 +55,7 @@ extern void echo(char hello[])
     pid_t cid = fork();
     if(cid==0)
     {  
+    	signal(SIGCONT, sigconhandler);
 	//============================================================//
     	// Input, Output redirection starts here. 
 	//============================================================//
@@ -100,39 +107,26 @@ extern void echo(char hello[])
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		int i=0,status=0;
-		while(hello[i]==' ')
-			i++;
-		for(i=i+5;i<strlen(hello);i++)
-		{
-			if(hello[i]=='\\')
-			{
-				i++;
-				if(i<strlen(hello))
-					printf("%c",hello[i]);
-			}
-			else if(hello[i]=='\"')
-				status=!status;
-			else if(status==1)
-				printf("%c",hello[i]);
-			else
-			{
-				int t=0;
-				printf("%c",hello[i]);
-				while(hello[i+1]==' ')
-					{i++;t++;}
-				if(t==1)
-					i--;
-			}
-		}
-	}
-	else 
-	{
-		 if(amIPiped[cmdcnt] == 1)
+		
+		execvp(argv[0],argv);
+		printf("foreground se khatam\n");
+		_exit(0);
+         
+    }
+    else
+        {
+        if(amIPiped[cmdcnt] == 1)
           {
           	close(piping[cmdcnt-1][1]);
           	close(piping[cmdcnt-1][0]);
         }
         waitpid(-1, &status, WUNTRACED );
-	}
+          // while(cpid!=cid)
+          // {
+          //   cpid = wait(&status);
+          //   if(cpid != cid)
+				      // kill(cpid, SIGKILL);
+          // }
+        }
 }
+

@@ -1,20 +1,20 @@
 clear
-cat < file.txt | ps
-ps
-quit
-ps | cat
-cat < file.txt | wc 
-quit
-cat < file.txt | wc
-quit
+cat
+ls
+jobs
 clear
-ps
-cat < file.txt | ps
-cat < file.txt | wd
-cat < file.txt | wc
-quit
+jobs
+job
+showjobs
+jobs
+ls
+opeclear
+clear
 ls
 clear
-ps
+ls
+ls
+ls
+this
 clear
 quit
