@@ -138,7 +138,7 @@ int main(void)
 					{
 
 						int pipeD=0;
-						printf("%s\n", every);
+					//	printf("%s\n", every);
 
 						if(strcmp(every,"\n")!=0)
 						{
