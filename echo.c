@@ -109,8 +109,6 @@ extern void echo(char *argv[], int len)
 		//============================================================//
 		for (int t=0;t<len;t++)
 		{	
-			if( !strcmp(argv[0], ">") || !strcmp(argv[0], "<") || !strcmp(argv[0], "|"))
-				break;
 			printf("%s ",argv[t]);
 		}
 		
