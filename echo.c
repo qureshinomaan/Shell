@@ -55,6 +55,7 @@ extern void echo(char hello[])
 		int fdin,fdout;
 		if(inputD == 1)
 		{
+			printf("In Input Redirection\n");
 			fdin = open(input_file, O_RDWR);
 			dup2(fdin, 0);
 			close(fdin);
