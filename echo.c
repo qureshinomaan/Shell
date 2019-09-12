@@ -55,7 +55,10 @@ extern void echo(char *argv[], int len)
     	// Input, Output redirection starts here. 
 	//============================================================//
 		int fdin,fdout;
-		
+		for (int t=0;t<len;t++)
+		{	
+			printf("%s ",argv[t]);
+		}
 		if(inputD == 1)
 		{
 			printf("In Input Redirection\n");
@@ -107,10 +110,7 @@ extern void echo(char *argv[], int len)
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		for (int t=0;t<len;t++)
-		{	
-			printf("%s ",argv[t]);
-		}
+		
 		
 		_exit(0);
 	}
