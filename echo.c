@@ -105,7 +105,7 @@ extern void echo(char hello[])
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		printf("Here I am\n");
+		printf("String = %s\n", hello);
 		int i=0,status=0;
 		while(hello[i]==' ')
 			i++;
