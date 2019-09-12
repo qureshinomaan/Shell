@@ -80,7 +80,7 @@ extern void execute_cmd(char *actual_cmd[], int len)
 						}
 					}
 					else if(strcmp(actual_cmd[0],"echo") == 0)
-						echo(cpy_cmd);
+						echo(actual_cmd, len);
 					else if(strcmp(actual_cmd[0],"quit") == 0)
 						_exit(0);
 					else if(strcmp(actual_cmd[0],"pwd") == 0)

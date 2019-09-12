@@ -39,7 +39,7 @@ void history();
 void addTohist();
 
 
-extern void echo(char hello[])
+extern void echo(char *argv[], int len)
 {
 
 	printf("In Echo\n");
@@ -105,32 +105,13 @@ extern void echo(char hello[])
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		printf("String = %s\n", hello);
-		int i=0,stt=0;
-		while(hello[i]==' ')
-			i++;
-		for(i=i+5;i<strlen(hello);i++)
-		{
-			if(hello[i]=='\\')
+		int i=1,stt=0;
+		while(argv[i]!=NULL)
 			{
+				printf("%s ", argv[i]);
 				i++;
-				if(i<strlen(hello))
-					printf("%c",hello[i]);
 			}
-			else if(hello[i]=='\"')
-				stt=!stt;
-			else if(stt==1)
-				printf("%c",hello[i]);
-			else
-			{
-				int t=0;
-				printf("%c",hello[i]);
-				while(hello[i+1]==' ')
-					{i++;t++;}
-				if(t==1)
-					i--;
-			}
-		}
+		
 		_exit(0);
 	}
 	else 
