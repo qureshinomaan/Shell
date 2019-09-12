@@ -106,9 +106,11 @@ extern void echo(char *argv[], int len)
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
-		printf("%d\n", len);
 		for(int k=0;k<len;k++)
-			printf("%s\n",argv[k]);
+			{
+				if(!strcmp(argv[k], "<") || !strcmp(argv[k], ">") || !strcmp(argv[k], "|"))
+				printf("%s\n",argv[k]);
+			}
 		
 		_exit(0);
 	}
