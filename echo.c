@@ -106,7 +106,7 @@ extern void echo(char hello[])
     	// Piping ends here. 
 		//============================================================//
 		printf("String = %s\n", hello);
-		int i=0,status=0;
+		int i=0,stt=0;
 		while(hello[i]==' ')
 			i++;
 		for(i=i+5;i<strlen(hello);i++)
@@ -118,8 +118,8 @@ extern void echo(char hello[])
 					printf("%c",hello[i]);
 			}
 			else if(hello[i]=='\"')
-				status=!status;
-			else if(status==1)
+				stt=!stt;
+			else if(stt==1)
 				printf("%c",hello[i]);
 			else
 			{
