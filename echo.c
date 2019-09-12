@@ -57,7 +57,8 @@ extern void echo(char *argv[], int len)
 		int fdin,fdout;
 		int i=0,stt=0;
 		printf("here\n");
-		printf("%s\n",argv[0]);
+		for (int t=0;t<len;t++)
+			printf("%s\n",argv[t]);
 		if(inputD == 1)
 		{
 			printf("In Input Redirection\n");
