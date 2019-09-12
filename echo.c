@@ -62,6 +62,7 @@ extern void echo(char hello[])
 		if(outputD == 1 || outputD == 2)
 		{
 			// You must give at least one of O_WRONLY, O_RDONLY, O_RDWR
+			printf("In Output Redirection\n");
 			if(outputD == 2)
 				fdout = open(output_file,O_APPEND | O_WRONLY);
 			else 
@@ -86,12 +87,14 @@ extern void echo(char hello[])
 
 		if(amIPiped[cmdcnt] == 1)
 		{
+			printf("In Input Pipe\n");
 			dup2(piping[cmdcnt-1][0], 0);
 			close(piping[cmdcnt-1][1]);
 			close(piping[cmdcnt-1][0]);
 		}
 		if(isNxtPiped[cmdcnt] == 1)
 		{
+			printf("In Output Pipe\n");
 			dup2(piping[cmdcnt][1], 1);
 			close(piping[cmdcnt][0]);
 			close(piping[cmdcnt][1]);
