@@ -42,6 +42,7 @@ void addTohist();
 extern void echo(char hello[])
 {
 
+	printf("In Echo\n");
 	pid_t cpid;
 	int *stat;
 	int status;
