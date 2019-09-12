@@ -107,7 +107,7 @@ extern void echo(char *argv[], int len)
     	// Piping ends here. 
 		//============================================================//
 		printf("%d\n", len);
-		for(int k=0;k<2;k++)
+		for(int k=0;k<len;k++)
 			printf("%s\n",argv[k]);
 		
 		_exit(0);
