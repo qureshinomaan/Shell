@@ -181,7 +181,7 @@ int main(void)
 						}
 						if(direction == 0 && !inputD && !outputD && !pipeD)
 						{
-							strcpy(actual_cmd[cmdcnt][len], every);	
+							actual_cmd[cmdcnt][len] = every;	
 							if(actual_cmd[cmdcnt][len][strlen(actual_cmd[cmdcnt][len])-1]=='\n')
 								actual_cmd[cmdcnt][len][strlen(actual_cmd[cmdcnt][len])-1]='\0';
 							len++;
