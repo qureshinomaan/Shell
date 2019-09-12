@@ -125,6 +125,7 @@ extern void echo(char hello[])
 					i--;
 			}
 		}
+		_exit(0);
 	}
 	else 
 	{
