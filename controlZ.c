@@ -12,9 +12,9 @@
 #include<sys/types.h>
 
 int current_fg;
-extern int amIPiped[100], isNxtPiped[100];
-extern int piping[100][2];
-extern int cmdcnt;
+int amIPiped[100], isNxtPiped[100];
+int piping[100][2];
+int cmdcnt;
 
 extern void  INThandlerz(int sig)
 {

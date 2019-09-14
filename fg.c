@@ -33,11 +33,11 @@ extern void fg(char *argv[], int len)
 	 stdin_PGID = tcgetpgrp(STDIN_FILENO);
      if (stdin_PGID == -1) {
         printf("Could not get PGID for stdin.n");
-        return(EXIT_FAILURE);
+       // return(EXIT_FAILURE);
      }
 	else if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
         printf("Could not set PGID.n");
-        return(EXIT_FAILURE);
+       // return(EXIT_FAILURE);
      }
 	return;
 }
