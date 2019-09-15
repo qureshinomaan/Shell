@@ -82,6 +82,7 @@ void kjob();
 void jobs();
 void overkill();
 void fg();
+void bg();
 void INThandler();
 void INThandlerz();
 void execute_cmd();
