@@ -11,6 +11,11 @@
 #include<time.h>
 #include<sys/types.h>
 
+char pidname[1000][200];
+int pidnumber;
+int pidlst[20000][3];
+struct stat statRes;
+
 extern void kjob(char *argv[], int len)
 {
 	if(len != 3)
@@ -18,7 +23,8 @@ extern void kjob(char *argv[], int len)
 	else 
 	{
 		int sig = atoi(argv[2]);
-		pid_t pid = atoi(argv[1]);
+		int jobno = atoi(argv[1]);
+		pid_t pid = pidlst[jobno-1][1];
 		kill(pid, sig);
 	}
 }
