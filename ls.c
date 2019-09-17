@@ -12,7 +12,6 @@
 
 struct dirent *ent;
 
-struct stat statRes;
 struct rusage usage;
 char command[100],cpy_cmd[100];
 char home[100],pwd[100],dir[100],user[256],host[256];
@@ -78,8 +77,8 @@ extern void ls(char actual_cmd[])
 {
 
 	pid_t cpid;
-	int *stat;
 	int status;
+	struct stat statRes;
 	//printf("bhow\n");
     pid_t cid = fork();
     if(cid==0)
@@ -177,20 +176,24 @@ extern void ls(char actual_cmd[])
 	      			if(isdir==0)
 	      			{
 	      				printf("  %10s ", ent->d_name);
+	      				char *this1;
+	      				this1 =  ent->d_name;
 	      			     if(l==1)
 	      				 {
-	      				    // stat(ent->d_name,&statRes);
-	      				    // fileProperties(statRes);
+	      				     stat(this1,&statRes);
+	      				     fileProperties(statRes);
 	      				  }
 	      				printf("\n");
 	      			}
 	      			else if(isdir == 1)
 	      			{
 	      				printf("  %10s ", ent->d_name);
+	      				char this1[100];
+	      				strcpy(this1, ent->d_name);
 	      			     if(l==1)
 	      				 {
-	      				    // stat(ent->d_name,&statRes);
-	      				    // fileProperties(statRes);
+	      				     stat( this1,&statRes);
+	      				     fileProperties(statRes);
 	      				  }
 	      				printf("\n");
 	      			}
@@ -203,8 +206,8 @@ extern void ls(char actual_cmd[])
 		  			printf("  %10s ", ent->d_name);
 		      		if(l==1)
 		      		{
-		      			// stat(ent->d_name,&statRes);
-		      			// fileProperties(statRes);
+		      			 stat(ent->d_name,&statRes);
+		      			 fileProperties(statRes);
 		      		}
 		      		printf("\n");
 	  			}
@@ -213,8 +216,8 @@ extern void ls(char actual_cmd[])
 	  				printf("  %10s ", ent->d_name);
 		      		if(l==1)
 		      		{
-		      			// stat(ent->d_name,&statRes);
-		      			// fileProperties(statRes);
+		      			 stat(ent->d_name,&statRes);
+		      			 fileProperties(statRes);
 		      		}
 		      		printf("\n");
 	  			}

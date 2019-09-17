@@ -1,20 +1,20 @@
-clear
-cat
-ls
-jobs
-clear
-jobs
-job
-showjobs
-jobs
-ls
-opeclear
-clear
-ls
-clear
-ls
-ls
-ls
 this
+clear
+quit
+clear
+ls
+clear
+ls > file.txt
+cat file.txt
+clear
+ls -l file.txt
+ls -l > file.txt
+cat file.txt
+clear
+make
+quit
+clear
+ls -l 
+ls -l | cat | wc
 clear
 quit
