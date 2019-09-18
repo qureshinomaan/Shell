@@ -1,20 +1,20 @@
-this
+clear
+ps
+clear
+setenv 1
+ps
+setenv hello 1
+env
+setenv bello 2
+env
+clear
+ps
+env | grep bello
+env
+setenv bello 5
+env
+set
 clear
 quit
-clear
-ls
-clear
-ls > file.txt
-cat file.txt
-clear
-ls -l file.txt
-ls -l > file.txt
-cat file.txt
-clear
-make
-quit
-clear
-ls -l 
-ls -l | cat | wc
 clear
 quit
