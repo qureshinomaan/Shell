@@ -1,15 +1,3 @@
-clear
-ps
-clear
-setenv 1
-ps
-setenv hello 1
-env
-setenv bello 2
-env
-clear
-ps
-env | grep bello
 env
 setenv bello 5
 env
@@ -17,4 +5,16 @@ set
 clear
 quit
 clear
+quit
+clear
+ps
+vim &
+ps
+
+fg 4107
+clear
+ps
+vim 
+jobs
+ps
 quit

@@ -15,8 +15,16 @@ int current_fg;
 int amIPiped[100], isNxtPiped[100];
 int piping[100][2];
 int cmdcnt;
+char pidname[1000][200];
+int pidnumber;
+char command[100],cpy_cmd[100];
+int pidlst[20000][3];
 
 extern void  INThandlerz(int sig)
 {
+	 pidlst[pidnumber][1] = getpid();
+     pidlst[pidnumber][2] = getppid();
+     strcpy(pidname[pidnumber], cpy_cmd);
+     pidnumber++;
 	signal(SIGTSTP, INThandlerz);
 }
