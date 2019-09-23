@@ -139,7 +139,7 @@ extern void execute_cmd(char *actual_cmd[], int len)
 					}
 					else
 					{
-						if(len>1 && strcmp( actual_cmd[len-1],"&") ==0 )
+						if(len>1 && strcmp( actual_cmd[len-1],"&") == 0 )
 							{
 								actual_cmd[len-1] = NULL;
 								vi(actual_cmd,len);
