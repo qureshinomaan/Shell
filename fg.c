@@ -41,5 +41,6 @@ extern void fg(char *argv[], int len)
         printf("Could not set PGID.n");
        // return(EXIT_FAILURE);
      }
+	signal(SIGTTOU, SIG_DFL);
 	return;
 }
