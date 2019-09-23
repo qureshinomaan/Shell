@@ -116,11 +116,11 @@ extern void vim(char *argv[], int len)
     else
         {
         if(amIPiped[cmdcnt] == 1)
-          {
+        {
           	close(piping[cmdcnt-1][1]);
           	close(piping[cmdcnt-1][0]);
         }
-        waitpid(-1, &status, WUNTRACED );
+        waitpid(cid, &status, WUNTRACED);
           // while(cpid!=cid)
           // {
           //   cpid = wait(&status);
