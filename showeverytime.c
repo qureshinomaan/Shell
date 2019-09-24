@@ -10,7 +10,6 @@
 #include<sys/types.h>
 #include<sys/resource.h>
 
-
 struct stat statRes;
 struct rusage usage;
 char command[100],cpy_cmd[100];
