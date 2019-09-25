@@ -24,6 +24,7 @@ int amIPiped[100] , isNxtPiped[100] ;
 int piping[100][2];
 int cmdcnt;
 
+
 void ls();
 void hme();
 void pinfo2();
@@ -120,6 +121,7 @@ extern void vim(char *argv[], int len)
           	close(piping[cmdcnt-1][1]);
           	close(piping[cmdcnt-1][0]);
         }
+        current_fg = cid;
         waitpid(cid, &status, WUNTRACED);
           // while(cpid!=cid)
           // {
