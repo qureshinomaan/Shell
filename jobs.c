@@ -18,13 +18,8 @@ int pidlst[20000][2];
 extern void jobs()
 {
 	int count=0;
-	printf("%d\n", pidnumber);
 	for (int i=0;i<pidnumber;i++)
 	{
-		if(pidlst[i][0]==0)
-		{
-			count++;
 			printf("[%d] Running %s with pid [%d] \n", count, pidname[i], pidlst[i][1]);
-		}
 	}
 }
