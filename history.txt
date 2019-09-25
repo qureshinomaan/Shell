@@ -1,20 +1,20 @@
-vim &
-jovs
-jobs
-quit
+fg 13757
 clear
-vim &
-vim &
-jobs
-jobs
+ps
+ls
+ps
+clear
+./shell
+ps
+ps
+fg 14470
+
+
 quit
 ps
 clear
+ps
 ls
-vim &
-vim &
-fg 10555
-[22R[>0950c]11rgb:12/1a/21:qqqqqq
-
 clear
-ls
+ps
+quit
