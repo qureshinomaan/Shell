@@ -71,8 +71,7 @@ extern void pinfo2(char *pid)
 
 	pid_t cpid;
 	int *stat;
-	int status;
-	//printf("bhow\n");
+//	int status;
 	//============================================================//
     	// Input, Output redirection starts here. 
 	//============================================================//
@@ -150,4 +149,5 @@ extern void pinfo2(char *pid)
 			readlink(process,printed, 100);
 			printf("Executable Path: %s\n", printed);
 		}
+
 }
