@@ -29,7 +29,7 @@ extern void fg(char *argv[], int len)
 	// 	tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);
 	// signal(SIGTTOU, SIG_IGN);
-	// waitpid(-1, &status, WUNTRACED);
+	 waitpid(-1, &status, WUNTRACED);
 
 	// pid_t stdin_PGID;
 	//  stdin_PGID = tcgetpgrp(STDIN_FILENO);
