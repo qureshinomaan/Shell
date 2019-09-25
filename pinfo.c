@@ -73,9 +73,6 @@ extern void pinfo2(char *pid)
 	int *stat;
 	int status;
 	//printf("bhow\n");
-    pid_t cid = fork();
-    if(cid==0)
-    {  
 	//============================================================//
     	// Input, Output redirection starts here. 
 	//============================================================//
@@ -153,20 +150,4 @@ extern void pinfo2(char *pid)
 			readlink(process,printed, 100);
 			printf("Executable Path: %s\n", printed);
 		}
-	}
-	 else
-        {
-        if(amIPiped[cmdcnt] == 1)
-          {
-          	close(piping[cmdcnt-1][1]);
-          	close(piping[cmdcnt-1][0]);
-        }
-        waitpid(-1, &status, WUNTRACED );
-          // while(cpid!=cid)
-          // {
-          //   cpid = wait(&status);
-          //   if(cpid != cid)
-				      // kill(cpid, SIGKILL);
-          // }
-        }
 }
