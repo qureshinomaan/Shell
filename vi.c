@@ -73,9 +73,5 @@ extern void vi(char *argv[],int len)
           strcpy(pidname[pidnumber], cpy_cmd);
           printf("pidlst = %d\n", pidlst[pidnumber][1]);
           pidnumber++;
-          printf("%d\n", pidnumber);
-          printf("Parent pid : %d\n", getpid());
-          printf("Child pid : %d\n", cid);
-          signal(SIGCHLD, sig_handler);
         }
 }
