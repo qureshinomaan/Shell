@@ -70,7 +70,7 @@ extern void vi(char *argv[],int len)
           pidlst[pidnumber][1] = cid;
           pidlst[pidnumber][2] = getpid();
           strcpy(pidname[pidnumber], cpy_cmd);
-          printf("pidlst = %d\n", pidlst[pidnumber][1])
+          printf("pidlst = %d\n", pidlst[pidnumber][1]);
           pidnumber++;
           printf("%d\n", pidnumber);
           printf("Parent pid : %d\n", getpid());
