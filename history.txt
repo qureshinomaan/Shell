@@ -1,20 +1,20 @@
-
+vim &
+vim &
+overkill
+htop &
+htop &
+htop &
+overkill
+clear
+ps
+htop &
+htop &
+htop &
+ps
 jobs
-kjob 9 7331
-quit
-quit
+jobs
+overkill
 ps
-clear
-vim &
-vim &
-fg 15297
-quit
-ps
-clear
-ps
-vim &
-vim &
-fg 17605
-ps
-clear
+jobs
+jobs
 quit

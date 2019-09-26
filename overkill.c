@@ -21,6 +21,10 @@ extern void overkill()
 	for (int i=0;i<pidnumber;i++)
 	{
 			pid_t pid =pidlst[i][1];
+
+		if(pid != getpid())
+		{
 			kill(pid, sig);	
+		}
 	}
 }

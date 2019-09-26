@@ -71,7 +71,7 @@ extern void vi(char *argv[],int len)
         //  kill(cid, SIGTTOU);
           signal(SIGCHLD, sig_handler);
          // waitpid(cid, &status, WUNTRACED);
-          pidlst[pidnumber][0] = cid;
+          pidlst[pidnumber][0] = 0;
           pidlst[pidnumber][1] = cid;
           pidlst[pidnumber][2] = getpid();
           strcpy(pidname[pidnumber], cpy_cmd);
