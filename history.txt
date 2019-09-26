@@ -1,20 +1,20 @@
 vim &
 vim &
-overkill
-htop &
-htop &
-htop &
-overkill
+jobs
+quit
 clear
 ps
-htop &
-htop &
-htop &
+vim &
+jobs
+vim &
+jobs
+quit
+clear
 ps
+vim &
+jobs
+vim &
 jobs
 jobs
-overkill
-ps
-jobs
-jobs
+clear
 quit

@@ -17,9 +17,10 @@ int pidlst[20000][2];
 
 extern void jobs()
 {
+	printf("pidnumber : %d\n", pidnumber);
 	for (int i=0;i<pidnumber;i++)
 	{
-		if(kill(pidlst[i][1], 0) == 0)
+		//if(kill(pidlst[i][1], 0) == 0)
 			printf("[%d] Running %s with pid [%d] \n", i, pidname[i], pidlst[i][1]);
 	}
 }
