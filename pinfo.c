@@ -88,7 +88,9 @@ extern void pinfo2(char *pid)
                                // printf("%s\n", printed);
                        // else if(strncmp(printed, "VmSize",6) == 0)
                               //  printf("%s\n", printed);
+             		   printf("here3\n");
                 }
+                printf("here2\n");
                 strcpy(process, "/proc/");
                 strcat(process, pid);
                 strcat(process, "/exe");
