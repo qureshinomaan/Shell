@@ -23,8 +23,8 @@ extern void kjob(char *argv[], int len)
 	else 
 	{
 		int sig = atoi(argv[2]);
-		int jobno = atoi(argv[1]);
-		pid_t pid = pidlst[jobno-1][1];
+		int pid = atoi(argv[1]);
+	//	pid_t pid = pidlst[jobno-1][1];
 		kill(pid, sig);
 	}
 }
