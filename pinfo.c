@@ -75,6 +75,7 @@ extern void pinfo2(char *pid)
 	//============================================================//
     	// Input, Output redirection starts here. 
 	//============================================================//
+	printf("here1\n");
 		int fdin,fdout;
 		if(inputD == 1)
 		{
@@ -82,6 +83,8 @@ extern void pinfo2(char *pid)
 			dup2(fdin, 0);
 			close(fdin);
 		}
+	printf("here1\n");
+
 		if(outputD == 1 || outputD == 2)
 		{
 			// You must give at least one of O_WRONLY, O_RDONLY, O_RDWR
@@ -99,6 +102,8 @@ extern void pinfo2(char *pid)
 			dup2(fdout, 1);
 			close(fdout);
 		}
+	printf("here3\n");
+
 		//============================================================//
     	// Input, Output redirection ends here. 
 		//============================================================//
@@ -123,6 +128,7 @@ extern void pinfo2(char *pid)
 		//============================================================//
     	// Piping ends here. 
 		//============================================================//
+	printf("here4\n");
 		
 
 		FILE *status;
