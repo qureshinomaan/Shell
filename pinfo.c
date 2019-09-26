@@ -145,10 +145,10 @@ extern void pinfo2(char *pid)
 		{	
 			while(getline(&printed, &ptr, sttus)!=-1)
 			{
-				if(strncmp(printed, "State",5) == 0)
+				//if(strncmp(printed, "State",5) == 0)
 					printf("%s\n", printed);
-				else if(strncmp(printed, "VmSize",6) == 0)
-					printf("%s\n", printed);
+				//else if(strncmp(printed, "VmSize",6) == 0)
+				//	printf("%s\n", printed);
 			}
 			strcpy(process, "/proc/");
 			strcat(process, pid);
