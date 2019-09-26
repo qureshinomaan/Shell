@@ -115,7 +115,7 @@ extern void vim(char *argv[], int len)
          
     }
     else
-        {
+    {
         if(amIPiped[cmdcnt] == 1)
         {
           	close(piping[cmdcnt-1][1]);
@@ -129,5 +129,5 @@ extern void vim(char *argv[], int len)
           //   if(cpid != cid)
 				      // kill(cpid, SIGKILL);
           // }
-        }
+    }
 }

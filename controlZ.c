@@ -23,10 +23,13 @@ int current_fg;
 
 extern void  INThandlerz(int sig)
 {
-	pidlst[pidnumber][0] = current_fg;
-    pidlst[pidnumber][1] = current_fg;
-    pidlst[pidnumber][2] = getpid();
-    strcpy(pidname[pidnumber], cpy_cmd);
-    pidnumber++;
+	if(current_fg != getpid())
+	{	
+		pidlst[pidnumber][0] = current_fg;
+	    pidlst[pidnumber][1] = current_fg;
+	    pidlst[pidnumber][2] = getpid();
+	    strcpy(pidname[pidnumber], cpy_cmd);
+	    pidnumber++;
+	}
 	signal(SIGTSTP, INThandlerz);
 }
