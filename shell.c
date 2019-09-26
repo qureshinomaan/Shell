@@ -44,11 +44,8 @@ void pidover()
 	{
 		if(pidlst[i][0]==0)
 		{
-			if(kill(pidlst[i][1], 0)!=0)
-			{
 				printf("%s with pid %d exited \n", pidname[i], pidlst[i][1]);
 				pidlst[i][0]=1;
-			}
 		}
 	}
 }
