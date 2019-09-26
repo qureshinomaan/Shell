@@ -25,7 +25,6 @@ extern void fg(char *argv[], int len)
 	//int jobno= atoi(argv[1]);
 	//pid_t pid = pidlst[jobno-1][1];
 	pid_t pid = atoi(argv[1]);
-	kill(pid, 19);
 	if(getpgid(pid)!= getpid())
 		tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);

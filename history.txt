@@ -1,9 +1,3 @@
-ls
-clear
-ps
-quit
-
-
 quit
 clear
 ps
@@ -17,4 +11,10 @@ kill -9 7331
 jobs
 kjob 9 7331
 quit
+quit
+ps
+clear
+vim &
+vim &
+fg 15297
 quit
