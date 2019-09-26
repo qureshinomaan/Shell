@@ -131,18 +131,19 @@ extern void pinfo2(char *pid)
 	printf("here4\n");
 		
 
-		FILE *status;
+		FILE *sttus;
 		char process[100], *printed;
 		printf("PID %s\n",pid);
 		strcpy(process,"/proc/");
 		//sprintf(pid, "%d", pi);
 	    strcat(process,pid); 
 		strcat(process, "/status");
-		status=fopen( process, "r" );
+		sttus=fopen( process, "r" );
+	printf("here5\n");
 		size_t ptr;
-		if(status != NULL)
+		if(sttus != NULL)
 		{	
-			while(getline(&printed, &ptr, status)!=-1)
+			while(getline(&printed, &ptr, sttus)!=-1)
 			{
 				if(strncmp(printed, "State",5) == 0)
 					printf("%s\n", printed);
@@ -155,5 +156,7 @@ extern void pinfo2(char *pid)
 			readlink(process,printed, 100);
 			printf("Executable Path: %s\n", printed);
 		}
+	printf("here6\n");
+
 
 }
