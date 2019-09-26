@@ -61,7 +61,7 @@ extern void vi(char *argv[],int len)
     if(cid==0)
         { 
           //This is the child process. 
-          setpgid(0,0);
+         // setpgid(0,0);
           execvp(argv[0],argv);
           _exit(0);
         }
