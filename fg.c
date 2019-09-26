@@ -28,11 +28,10 @@ extern void fg(char *argv[], int len)
 	if(getpgid(pid)!= getpid())
 		tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);
+	waitpid(-1, &status, WUNTRACED);
 	signal(SIGTTOU, SIG_IGN);
-	 waitpid(-1, &status, WUNTRACED);
-
 	pid_t stdin_PGID;
-	 stdin_PGID = tcgetpgrp(STDIN_FILENO);
+	stdin_PGID = tcgetpgrp(STDIN_FILENO);
      if (stdin_PGID == -1) {
         printf("Could not get PGID for stdin.n");
        // return(EXIT_FAILURE);
