@@ -121,8 +121,8 @@ extern void vim(char *argv[], int len)
           	close(piping[cmdcnt-1][1]);
           	close(piping[cmdcnt-1][0]);
         }
-        current_fg = cid;
         waitpid(cid, &status, WUNTRACED);
+                current_fg = cid;
           // while(cpid!=cid)
           // {
           //   cpid = wait(&status);
