@@ -31,16 +31,16 @@ extern void fg(char *argv[], int len)
 	waitpid(-1, &status, WUNTRACED);
 	
 	signal(SIGTTOU, SIG_IGN);
-	pid_t stdin_PGID;
-	stdin_PGID = tcgetpgrp(STDIN_FILENO);
-     if (stdin_PGID == -1) {
-        printf("Could not get PGID for stdin.n");
-       // return(EXIT_FAILURE);
-     }
-	else if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
-        printf("Could not set PGID.n");
-       // return(EXIT_FAILURE);
-     }
+	// pid_t stdin_PGID;
+	// stdin_PGID = tcgetpgrp(STDIN_FILENO);
+ //     if (stdin_PGID == -1) {
+ //        printf("Could not get PGID for stdin.n");
+ //       // return(EXIT_FAILURE);
+ //     }
+	// else if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
+ //        printf("Could not set PGID.n");
+ //       // return(EXIT_FAILURE);
+ //     }
 	signal(SIGTTOU, SIG_DFL);
 	return;
 }
