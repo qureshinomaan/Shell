@@ -68,66 +68,6 @@ extern void pinfo()
 
 extern void pinfo2(char *pid)
 {
-
-// 	pid_t cpid;
-// 	int *stat;
-// //	int status;
-// 	//============================================================//
-//     	// Input, Output redirection starts here. 
-// 	//============================================================//
-// 	printf("here1\n");
-// 		int fdin,fdout;
-// 		if(inputD == 1)
-// 		{
-// 			fdin = open(input_file, O_RDWR);
-// 			dup2(fdin, 0);
-// 			close(fdin);
-// 		}
-// 	printf("here1\n");
-
-// 		if(outputD == 1 || outputD == 2)
-// 		{
-// 			// You must give at least one of O_WRONLY, O_RDONLY, O_RDWR
-// 			if(outputD == 2)
-// 				fdout = open(output_file,O_APPEND | O_WRONLY);
-// 			else 
-// 				fdout = open(output_file,O_WRONLY);
-// 			if(fdout == -1)
-// 			{
-// 				mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH;
-// 				fdout = creat(output_file, mode);
-// 				close(fdout);
-// 				fdout = open(output_file,O_RDWR);
-// 			}
-// 			dup2(fdout, 1);
-// 			close(fdout);
-// 		}
-// 	printf("here3\n");
-
-// 		//============================================================//
-//     	// Input, Output redirection ends here. 
-// 		//============================================================//
-
-// 		//============================================================//
-//     	// Piping starts here. 
-// 		//============================================================//
-
-// 		if(amIPiped[cmdcnt] == 1)
-// 		{
-// 			dup2(piping[cmdcnt-1][0], 0);
-// 			close(piping[cmdcnt-1][1]);
-// 			close(piping[cmdcnt-1][0]);
-// 		}
-// 		if(isNxtPiped[cmdcnt] == 1)
-// 		{
-// 			dup2(piping[cmdcnt][1], 1);
-// 			close(piping[cmdcnt][0]);
-// 			close(piping[cmdcnt][1]);
-// 		}
-
-		//============================================================//
-    	// Piping ends here. 
-		//============================================================//
 	FILE *status;
         char process[100], *printed;
         printf("PID %s\n",pid);
@@ -152,7 +92,5 @@ extern void pinfo2(char *pid)
                 readlink(process,printed, 100);
                 printf("Executable Path: %s\n", printed);
         }
-
-
-
+ 
 }
