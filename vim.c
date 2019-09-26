@@ -115,19 +115,19 @@ extern void vim(char *argv[], int len)
          
     }
     else
-    {
+        {
         if(amIPiped[cmdcnt] == 1)
         {
           	close(piping[cmdcnt-1][1]);
           	close(piping[cmdcnt-1][0]);
         }
+        current_fg = cid;
         waitpid(cid, &status, WUNTRACED);
-                current_fg = cid;
           // while(cpid!=cid)
           // {
           //   cpid = wait(&status);
           //   if(cpid != cid)
 				      // kill(cpid, SIGKILL);
           // }
-    }
+        }
 }
