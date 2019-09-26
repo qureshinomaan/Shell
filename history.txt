@@ -1,20 +1,20 @@
-jobs
-vim &
-jobs
+clear
+ps
+sleep 15 &
+kill -18 29576
+ps
+ps
+ps
+ps aux | grep sleep
+bg 29576
 quit
-clear
-ps
-vim &
-jobs
-vim &
-jobs
-jobs
-clear
-quit
-clear
+sleep 15 &
+kill -18 29925
 ps
 ps
-vim &
-vim &
-jobs
+ps aux | grep sleep 
+bg 29925
+ps aux | grep sleep
+ps
+clear
 quit

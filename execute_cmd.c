@@ -43,6 +43,7 @@ void kjob();
 void jobs();
 void overkill();
 void fg();
+void bg();
 void INThandler();
 void INThandlerz();
 
@@ -136,6 +137,10 @@ extern void execute_cmd(char *actual_cmd[], int len)
 					else if(strcmp(actual_cmd[0], "fg") == 0)
 					{
 						fg(actual_cmd, len);
+					}
+					else if(strcmp(actual_cmd[0], "bg") == 0)
+					{
+						bg(actual_cmd, len);
 					}
 					else
 					{
