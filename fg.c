@@ -27,7 +27,7 @@ extern void fg(char *argv[], int len)
 	pid_t pid = atoi(argv[1]);
 	if(getpgid(pid)!= getpid())
 		tcsetpgrp(0, pid);
-	kill(pid, SIGCONT);
+	kill(pid, 19);
 	waitpid(-1, &status, WUNTRACED);
 	kill(pid, SIGCONT);
 	signal(SIGTTOU, SIG_IGN);
