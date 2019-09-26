@@ -85,7 +85,7 @@ extern void pinfo2(char *pid)
        					 printf("here1\n");
 
                         //if(strncmp(printed, "State",5) == 0)
-                                printf("%s\n", printed);
+                               // printf("%s\n", printed);
                        // else if(strncmp(printed, "VmSize",6) == 0)
                               //  printf("%s\n", printed);
                 }
