@@ -1,20 +1,20 @@
-fg 13757
-clear
 ps
 ls
-ps
 clear
-./shell
 ps
-ps
-fg 14470
+quit
 
 
 quit
-ps
 clear
 ps
-ls
-clear
+vim &
 ps
+jobs
+vim &
+jobs
+kill -9 7331
+
+jobs
+kjob 9 7331
 quit
