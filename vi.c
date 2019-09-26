@@ -42,6 +42,16 @@ volatile int total =0;
 
 int pid[10000];
 
+
+void sig_handler(int signum) {
+  int pid = waitpid(-1, NULL, WNOHANG);
+  if(pid > 0){
+    //printf("Process {%s} Successfully exited with {%d} .\n",pidname[pid],pid);
+  }
+// printf("sig_handler se gaya\n");
+}
+
+
 extern void vi(char *argv[],int len)
 {
 	pid_t cpid;
@@ -60,6 +70,7 @@ extern void vi(char *argv[],int len)
           // fork returns the process id of child to parent and 0 to child process. 
           //kill(cid, SIGTTOU);
           waitpid(cid, &status, WUNTRACED);
+          signal(SIGCHLD, sig_handler);
           pidlst[pidnumber][0] = cid;
           pidlst[pidnumber][1] = cid;
           pidlst[pidnumber][2] = getpid();
