@@ -20,10 +20,7 @@ extern void overkill()
 	int sig =9;
 	for (int i=0;i<pidnumber;i++)
 	{
-		if(pidlst[i][0]==0)
-		{
 			pid_t pid =pidlst[i][1];
-			kill(pid, sig);
-		}
+			kill(pid, sig);	
 	}
 }
