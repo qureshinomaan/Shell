@@ -61,15 +61,15 @@ extern void vi(char *argv[],int len)
     if(cid==0)
         { 
           //This is the child process. 
-         // setpgid(0,0);
+          setpgid(0,0);
           execvp(argv[0],argv);
           _exit(0);
         }
       else
         {
           // fork returns the process id of child to parent and 0 to child process. 
-          kill(cid, SIGTTOU);
-         // signal(SIGCHLD, sig_handler);
+        //  kill(cid, SIGTTOU);
+          signal(SIGCHLD, sig_handler);
          // waitpid(cid, &status, WUNTRACED);
           pidlst[pidnumber][0] = cid;
           pidlst[pidnumber][1] = cid;
