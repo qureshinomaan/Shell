@@ -68,19 +68,22 @@ extern void pinfo()
 
 extern void pinfo2(char *pid)
 {
-	FILE *status;
+		FILE *status;
         char process[100], *printed;
         printf("PID %s\n",pid);
         strcpy(process,"/proc/");
         //sprintf(pid, "%d", pi);
-    strcat(process,pid);
+    	strcat(process,pid);
         strcat(process, "/status");
         status=fopen( process, "r" );
+        printf("here1\n");
         size_t ptr;
         if(status != NULL)
         {
                 while(getline(&printed, &ptr, status)!=-1)
                 {
+       					 printf("here1\n");
+
                         if(strncmp(printed, "State",5) == 0)
                                 printf("%s\n", printed);
                         else if(strncmp(printed, "VmSize",6) == 0)
