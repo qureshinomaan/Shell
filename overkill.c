@@ -20,7 +20,7 @@ extern void overkill()
 	int sig =9;
 	for (int i=0;i<pidnumber;i++)
 	{
-		pid_t pid =pidlst[i][1];
+		pid_t pid =pids[i];
 
 		if(pid != getpid())
 		{
