@@ -14,6 +14,7 @@
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][3];
+int pids[1000];
 struct stat statRes;
 
 extern void kjob(char *argv[], int len)
@@ -23,7 +24,8 @@ extern void kjob(char *argv[], int len)
 	else 
 	{
 		int sig = atoi(argv[2]);
-		int pid = atoi(argv[1]);
+		int jobno = atoi(argv[1]);
+		int pid = pids[jobno];
 	//	pid_t pid = pidlst[jobno-1][1];
 		kill(pid, sig);
 	}

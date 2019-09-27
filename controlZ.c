@@ -19,13 +19,12 @@ char pidname[1000][200];
 int pidnumber;
 char command[100],cpy_cmd[100];
 int pidlst[20000][3];
+int pids[1000];
 int current_fg;
 
 extern void  INThandlerz(int sig)
 {
-	pidlst[pidnumber][0] = current_fg;
-    pidlst[pidnumber][1] = current_fg;
-    pidlst[pidnumber][2] = getpid();
+	pids[pidnumber] = current_fg;
     strcpy(pidname[pidnumber], cpy_cmd);
     pidnumber++;
 	signal(SIGTSTP, INThandlerz);

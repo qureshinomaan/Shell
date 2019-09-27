@@ -14,6 +14,7 @@
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][3];
+int pids[1000];
 struct stat statRes;
 
 
@@ -22,9 +23,14 @@ extern void fg(char *argv[], int len)
 	int status, error;
 	if(len!=2)
 	{	printf("Wrong Number of Arguments!\n"); return;}
-	//int jobno= atoi(argv[1]);
-	//pid_t pid = pidlst[jobno-1][1];
-	pid_t pid = atoi(argv[1]);
+	int jobno= atoi(argv[1]);
+	pid_t pid = pids[jobno];
+	//pid_t pid = atoi(argv[1]);
+	if(kill(pid, 0) !=0 )
+	{
+		printf("Sorry, This job does not exist.\n");
+		return;
+	}
 	if(getpgid(pid)!= getpid())
 		tcsetpgrp(0, pid);
 	kill(pid, SIGCONT);

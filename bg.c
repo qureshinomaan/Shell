@@ -14,6 +14,7 @@
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][3];
+int pids[1000];
 struct stat statRes;
 
 
@@ -22,8 +23,8 @@ extern void bg(char *argv[], int len)
 	int status, error;
 	if(len!=2)
 		printf("Wrong Number of Arguments!\n");
-	//int jobno= atoi(argv[1]);
-	pid_t pid = atoi(argv[1]);
+	int jobno= atoi(argv[1]);
+	pid_t pid = pids[jobno];
 	kill(pid, SIGCONT);
 	return;
 }

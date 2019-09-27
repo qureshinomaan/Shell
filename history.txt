@@ -1,20 +1,20 @@
-overkill
-clear
-htop &
-pinfo 2678
-quit
-jobs
-vim &
-jobs
-quit
 ps
-vim &
-jobs
 quit
 clear
+make
 ps
 vim &
-jobs
-quit
+vim 
 ps
-quit
+jobs
+fg 8113
+fg 1
+ps
+jobs
+fg 1
+ps
+jobs
+fg 0
+jobs
+ps
+ls | cat | wc -l
