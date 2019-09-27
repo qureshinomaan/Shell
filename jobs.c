@@ -21,7 +21,6 @@ void printJob(char *pid)
 {
 		FILE *status;
         char process[100], *printed;
-        printf("PID %s\n",pid);
         //sprintf(pid, "%d", pi);
     	strcat(process,pid);
         strcat(process, "/status");
@@ -33,7 +32,7 @@ void printJob(char *pid)
                 {
                         if(strncmp(printed, "State",5) == 0)
                                {
-                               	int i =0;
+                               	int i =5;
                                	while(printed[i] != '\n' && printed[i] != '\0')
                                		printf("%c", printed[i]);
                                }
@@ -48,7 +47,7 @@ extern void jobs()
 	{
 		if(kill(pids[i], 0) == 0)
 			{
-				printf("[%d] ", i);
+				printf("[%d] with ", i);
 				char stringpid[30];
 				sprintf(stringpid, "%d", pids[i]);
 				printJob(stringpid);
