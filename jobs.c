@@ -14,13 +14,44 @@
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][2];
+int pids[1000];
+
+
+void printJob(char *pid)
+{
+		FILE *status;
+        char process[100], *printed;
+        printf("PID %s\n",pid);
+        strcpy(process,"/proc/");
+        //sprintf(pid, "%d", pi);
+    	strcat(process,pid);
+        strcat(process, "/status");
+        status=fopen( process, "r" );
+        printf("process : %s\n", process);
+        size_t ptr;
+        if(status != NULL)
+        {
+                while(getline(&printed, &ptr, status)!=-1)
+                {
+                        if(strncmp(printed, "State",5) == 0)
+                                printf("%s ", printed);
+                }
+        }
+ 
+}
 
 extern void jobs()
 {
-	printf("pidnumber : %d\n", pidnumber);
 	for (int i=0;i<pidnumber;i++)
 	{
-		//if(kill(pidlst[i][1], 0) == 0)
-			printf("[%d] Running %s with pid [%d] \n", i, pidname[i], pidlst[i][2]);
+		if(kill(pids[i], 0) == 0)
+			{
+				printf("[%d] ", i);
+				char stringpid[30];
+				sprintf(stringpid, "%d", pids[i]);
+				printJob(stringpid);
+				printf("%s with pid [%d] \n",pidname[i], pids[i]);
+			}
 	}
 }
+

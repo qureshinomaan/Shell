@@ -76,7 +76,7 @@ extern void pinfo2(char *pid)
     	strcat(process,pid);
         strcat(process, "/status");
         status=fopen( process, "r" );
-        printf("here1\n");
+        printf("process : %s\n", process);
         size_t ptr;
         if(status != NULL)
         {
@@ -84,10 +84,10 @@ extern void pinfo2(char *pid)
                 {
        					 printf("here1\n");
 
-                        //if(strncmp(printed, "State",5) == 0)
-                               // printf("%s\n", printed);
-                       // else if(strncmp(printed, "VmSize",6) == 0)
-                              //  printf("%s\n", printed);
+                        if(strncmp(printed, "State",5) == 0)
+                                printf("%s\n", printed);
+                        else if(strncmp(printed, "VmSize",6) == 0)
+                                printf("%s\n", printed);
              		   printf("here3\n");
                 }
                 printf("here2\n");

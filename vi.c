@@ -20,6 +20,7 @@ int id;
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][3];
+int pids[1000];
 char input_file[100], output_file[100]; 
 int inputD, outputD;
 
@@ -73,10 +74,9 @@ extern void vi(char *argv[],int len)
          // waitpid(cid, &status, WUNTRACED);
         //  pidlst[pidnumber][0] = 0;
           printf("Cid = %d\n",cid);
-          pidlst[pidnumber][1] = cid;
-          pidlst[pidnumber][2] = getpid();
+          pids[pidnumber] = cid;
           strcpy(pidname[pidnumber], cpy_cmd);
-          printf("pidlst = %d\n", pidlst[pidnumber][1]);
+          printf("pidlst = %d\n", pids[pidnumber]);
           pidnumber++;
         }
 }

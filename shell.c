@@ -17,6 +17,7 @@ extern char *command,cpy_cmd[100];
 extern char home[100],pwd[100],dir[100],user[256],host[256];
 extern int pidlst[20000][3];
 extern int pidnumber;
+extern int pids[1000]; // For the pid 
 extern char pidname[1000][200];
 extern char input_file[100], output_file[100]; 
 extern int inputD, outputD;
