@@ -14,7 +14,7 @@
 char pidname[1000][200];
 int pidnumber;
 int pidlst[20000][2];
-itn pids[1000];
+int pids[1000];
 
 extern void overkill()
 {
