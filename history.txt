@@ -1,5 +1,3 @@
-vim &
-jobs
 overkill
 clear
 htop &
@@ -17,4 +15,6 @@ clear
 ps
 vim &
 jobs
+quit
+ps
 quit
