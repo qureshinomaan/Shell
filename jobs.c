@@ -21,8 +21,9 @@ void printJob(char *pid)
 {
 		FILE *status;
         char process[100], *printed;
-        printf("PID %s\n",pid);
+      //  printf("PID %s\n",pid);
         //sprintf(pid, "%d", pi);
+        strcpy(process,"/proc/");
     	strcat(process,pid);
         strcat(process, "/status");
         status=fopen( process, "r" );
@@ -32,9 +33,7 @@ void printJob(char *pid)
                 while(getline(&printed, &ptr, status)!=-1)
                 {
                         if(strncmp(printed, "State",5) == 0)
-                               {
-                               	printf("%s ", printed);
-                               }
+                            printf("%s ", printed);
                 }
         }
  
