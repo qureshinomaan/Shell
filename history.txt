@@ -1,7 +1,3 @@
-clear
-cat history.txt
-[A
-[A
 [A[A
 [A[A[A
 [A[A[A[A
@@ -17,4 +13,8 @@ cat history.txt
 
 ps
 clear
+quit
+ls
+quit
+quit
 quit
