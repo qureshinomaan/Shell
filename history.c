@@ -16,6 +16,9 @@ char command[100],cpy_cmd[100];
 char home[100],pwd[100],dir[100],user[256],host[256];
 int id;
 
+void vi();
+void vim();
+
 int minimum(int a, int b)
 {
 	if(a<b)
@@ -113,4 +116,43 @@ extern void addTohist(char cmd[])
         fclose(f3);
     }
 	return;
+}
+
+
+extern void upArrow(int command_where)
+{
+    printf("here\n");
+    char *command[100], *every;
+    char path[100];
+    char currentCharacter;
+    char hello[10][200];
+    char temp[200];
+    int totalLinesCount=0;
+    strcpy(path, home);
+    strcat(path, "/history.txt");
+    FILE *f1=fopen(path,"r");
+    while(fgets(temp, sizeof(temp), f1) != NULL)
+    {
+            totalLinesCount ++;
+    }
+   FILE *f2 = fopen(path, "r");
+   int count =0;
+   while(fgets(temp, sizeof(temp), f2) != NULL && totalLinesCount - command_where  !=count )
+   {
+    count++;
+   }
+   printf("%s\n",temp);
+    every = strtok(temp, " ");
+    int len =0, i=0;
+    while(every!=NULL)
+    {
+        command[i] = (char*)malloc(100);
+        strcpy(command[i], every);
+        i++;
+        every = strtok(0, " "); 
+    }
+    command[i] = NULL;
+    vim(command, i);
+
+    return;
 }

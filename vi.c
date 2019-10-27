@@ -58,6 +58,7 @@ extern void vi(char *argv[],int len)
 	pid_t cpid;
 	int *stat;
 	int status;
+  printf("%s\n",argv[1]);
     pid_t cid = fork();
     if(cid==0)
         { 

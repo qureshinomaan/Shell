@@ -1,20 +1,20 @@
-ps
-quit
 clear
-make
+cat history.txt
+[A
+[A
+[A[A
+[A[A[A
+[A[A[A[A
+[A[A[A[A
+clear
 ps
-vim &
-vim 
+cat history.txt
+
+
+
+
+
+
 ps
-jobs
-fg 8113
-fg 1
-ps
-jobs
-fg 1
-ps
-jobs
-fg 0
-jobs
-ps
-ls | cat | wc -l
+clear
+quit

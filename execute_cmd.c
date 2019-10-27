@@ -46,6 +46,8 @@ void fg();
 void bg();
 void INThandler();
 void INThandlerz();
+void cronJob();
+void upArrow();
 
 
 
@@ -54,7 +56,7 @@ extern void execute_cmd(char *actual_cmd[], int len)
 {
 	if( actual_cmd[0] == NULL)
 		return ;
-	//printf("Command is : %s\n", actual_cmd[0]);
+	printf("Command is : %d\n", (int)actual_cmd[0][0]);
 	if(strcmp(actual_cmd[0],"cd") == 0)
 					{
 						if(len == 1)
@@ -141,6 +143,20 @@ extern void execute_cmd(char *actual_cmd[], int len)
 					else if(strcmp(actual_cmd[0], "bg") == 0)
 					{
 						bg(actual_cmd, len);
+					}
+					else if(strcmp(actual_cmd[0], "cronjob") == 0)
+					{
+						cronJob(actual_cmd, len);
+					}
+					else if((int)actual_cmd[0][0]==27 && (int)actual_cmd[0][1]==91 && (int)actual_cmd[0][2]==65)
+					{
+						int count =0;
+						for(int i=0; i<strlen(actual_cmd[0]); i++)
+						{
+							if((int)actual_cmd[0][0]==27 && (int)actual_cmd[0][1]==91 && (int)actual_cmd[0][2]==65)
+								count++;
+						}
+						upArrow(count);
 					}
 					else
 					{
