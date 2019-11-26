@@ -1,20 +1,20 @@
-[A[A
-[A[A[A
-[A[A[A[A
-[A[A[A[A
-clear
-ps
-cat history.txt
-
-
-
-
-
-
-ps
-clear
+quit
 quit
 ls
-quit
-quit
+clear
+vim &
+ps
+jobs
+kjob -9 0
+jobs
+kill - -9
+kjob 0 -9
+ps
+jobs
+kjob -9 4892
+ps
+jobs
+clear
+ls
+
 quit
