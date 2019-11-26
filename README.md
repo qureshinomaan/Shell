@@ -17,7 +17,38 @@ make
 
 # Features 
 
+##Display 
+* The format is <username@system_name:curr_dir>
+* ~ signifies the address of Home Directory.  
+
 ## Commands 
+
+### pwd 
+* Prints the path present working directory. 
+
+### cd <directory path>
+* cd changes the pwd to the specified directory path. 
+
+### ls [al]
+* lists all the file in the pwd. 
+
+### pinfo
+* Prints the process related info of Shell program. 
+
+### pinfo <pid>
+* prints the process info about given pid. 
+
+### history 
+* Tells the last 10 commands executed on shell. 
+
+### history <n>
+* Prints the last 'n' commands. 
+* 'n' is specified by user. 
+
+### All Other General shell commands. 
+* All other commands like cat, grep, etc. can be executed through the shell. 
+* The difference is that they are builtin and ls, pwd, cd were built by me. 
+
 ### setenv var [value] :
 * If the enviroment variable does not exist, then creates it.
 * Modifies the existing value if the environment variable already exists. 
@@ -36,6 +67,19 @@ make
 
 ### bg <jobNumber>
 * Changes a stopped background job to a running background job. 
+
+### overkill 
+* Kills all background process at once. 
+
+### quit 
+* Exits the shell. 
+
+### CTRL-Z 
+* Changes teh currently running job to stop, and pushes it to background process.
+
+### CTRL-C
+* Sends a SIGINT signal to the current forground job of this shell. 
+* If there is no foreground process currently this should have no effect. 
 
 
 ### Foreground Processes
