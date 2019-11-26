@@ -15,37 +15,37 @@ make
 ./shell
 ```
 
-## Features 
+# Features 
 
 ## Commands 
-# setenv var [value] :
+### setenv var [value] :
 * If the enviroment variable does not exist, then creates it.
 * Modifies the existing value if the environment variable already exists. 
 
-# unsetenv var 
+### unsetenv var 
 * Destroys the evironment variable if exists. 
 
-# jobs 
+### jobs 
 * prints all the currently running jobs along with their pids. 
 
-# kjob <jobnumber> <signalNumber>
+### kjob <jobnumber> <signalNumber>
 * Takes the job number of the process and sends the signal specified by signalNumber to it. 
 
-# fg <jobNumber> 
+### fg <jobNumber> 
 * Brings the job running in background to the foreground. 
 
-# bg <jobNumber>
+### bg <jobNumber>
 * Changes a stopped background job to a running background job. 
 
 
-# Foreground Processes
+### Foreground Processes
 * Just type the command's name you want to run. 
 * These processes have the access of input and output on the terminal window.
 * Example 
 ```
 vim bello;ls;
 ```
-# Background Processes
+### Background Processes
 * Type the command's name you want to execute. End it with a &.
 * These processes run in the background meaning they do not have input and output accesses from the terminal window.
 * Example
@@ -53,7 +53,7 @@ vim bello;ls;
 vim bello &
 ```
 
-# Input/Output Redirection.
+## Input/Output Redirection.
 * Input Redirection 
 ```
 sort < lines.txt
@@ -70,7 +70,7 @@ cat bello.txt > hello.txt  //Appending to hello.txt
 sort < lines.txt > output.txt 
 ```
 
-# Command Redirection Using Pipes
+## Command Redirection Using Pipes
 * A pipe is a basically a channel of communication between two processes. 
 * Identified by '|'
 * Example 
