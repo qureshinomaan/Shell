@@ -1,6 +1,6 @@
 # Shell 
 
-This is a Shell developed entirely in C. 
+This is a Shell developed entirely in C. The shell emulates the normal bash in linux systems. It is able to handle bakground processes, foreground processes, input-output redirection, command redirection etc. 
 
 ### Installing
 
@@ -106,7 +106,7 @@ sort < lines.txt
 * Output Redirection 
 ```
 cat bello.txt > hello.txt  //Overwriting hello.txt
-cat bello.txt > hello.txt  //Appending to hello.txt
+cat bello.txt >> hello.txt  //Appending to hello.txt
 ```
 
 * Input-Output Redirection 
