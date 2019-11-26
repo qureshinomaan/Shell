@@ -15,35 +15,70 @@ make
 ./shell
 ```
 
-## Running the tests
+## Features 
 
-Explain how to run the automated tests for this system
+## Commands 
+# setenv var [value] :
+* If the enviroment variable does not exist, then creates it.
+* Modifies the existing value if the environment variable already exists. 
 
-### Break down into end to end tests
+# unsetenv var 
+* Destroys the evironment variable if exists. 
 
-Explain what these tests test and why
+# jobs 
+* prints all the currently running jobs along with their pids. 
 
+# kjob <jobnumber> <signalNumber>
+* Takes the job number of the process and sends the signal specified by signalNumber to it. 
+
+# fg <jobNumber> 
+* Brings the job running in background to the foreground. 
+
+# bg <jobNumber>
+* Changes a stopped background job to a running background job. 
+
+
+# Foreground Processes
+* Just type the command's name you want to run. 
+* These processes have the access of input and output on the terminal window.
+* Example 
 ```
-Give an example
+vim bello;ls;
+```
+# Background Processes
+* Type the command's name you want to execute. End it with a &.
+* These processes run in the background meaning they do not have input and output accesses from the terminal window.
+* Example
+```
+vim bello &
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
+# Input/Output Redirection.
+* Input Redirection 
 ```
-Give an example
+sort < lines.txt
 ```
 
-## Deployment
+* Output Redirection 
+```
+cat bello.txt > hello.txt  //Overwriting hello.txt
+cat bello.txt > hello.txt  //Appending to hello.txt
+```
 
-Add additional notes about how to deploy this on a live system
+* Input-Output Redirection 
+```
+sort < lines.txt > output.txt 
+```
 
-## Built With
+# Command Redirection Using Pipes
+* A pipe is a basically a channel of communication between two processes. 
+* Identified by '|'
+* Example 
+```
+cat bello.txt | grep hello
+ls | grep *.txt > out.txt 
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Contributing
 
@@ -51,7 +86,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Authors
 
-* **Nomaan Qureshi** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Nomaan Qureshi** - *Initial work*
 
 ## License
 
