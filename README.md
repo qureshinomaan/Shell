@@ -17,7 +17,7 @@ make
 
 # Features 
 
-##Display 
+## Display 
 * The format is <username@system_name:curr_dir>
 * ~ signifies the address of Home Directory.  
 
